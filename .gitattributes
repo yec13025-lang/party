@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------------------
+# 行尾策略：本项目对行尾与 BOM 极其敏感，必须关闭 Git 的一切自动转换。
+# ---------------------------------------------------------------------------
+# server.js 刻意保持纯 LF；js/ 与 html 刻意保持 CRLF；全部文件都不带 BOM。
+# 如果让 Git 做 text=auto 归一化，clone/checkout 之后行尾会被改写，
+# 而这些行尾是经过字节级校验的（脚本会把 CRLF 数量当断言用）。
+# `-text` 只是禁用行尾转换，不影响 diff 与合并，也不影响 GitHub 网页查看。
+* -text
+
+# ---------------------------------------------------------------------------
+# 媒体与字体：按二进制处理，避免无意义的行级 diff 与合并冲突
+# ---------------------------------------------------------------------------
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.bmp  binary
+
+*.mp3  binary
+*.m4a  binary
+*.aac  binary
+*.wav  binary
+*.ogg  binary
+*.opus  binary
+*.flac binary
+
+*.ttf  binary
+*.otf  binary
+*.woff  binary
+*.woff2 binary
+
+# 注意：这里唯一一个 .svg 是 fonts/fontawesome-webfont.svg —— 它是字体文件而非
+# 普通插图。如果按文本处理，Git 会在 checkout 时把它转成 CRLF，clone 出来的文件
+# 就与仓库里的不一样了。因此显式保持不转换（-text 只是禁用行尾处理，diff 仍可读）。
+*.svg -text

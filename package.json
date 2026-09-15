@@ -1,0 +1,25 @@
+{
+  "name": "birthday-card-lan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "奶糖小屋🍬 · 局域网生日贺卡系统：零依赖 Node 后端 + 本地静态前端，生成分享链接与二维码，收件人打开链接即见图片、录音、背景音乐与祝福语。",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "birthday-card",
+    "birthday",
+    "greeting-card",
+    "qrcode",
+    "lan",
+    "zero-dependency",
+    "node",
+    "vanilla-js"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

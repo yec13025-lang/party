@@ -1,0 +1,56 @@
+# https://editorconfig.org
+root = true
+
+# ---------------------------------------------------------------------------
+# 新增文件：UTF-8（不带 BOM）、LF、4 空格缩进、末尾留一个空行。
+# ---------------------------------------------------------------------------
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# ---------------------------------------------------------------------------
+# 历史文件的行尾是既成事实，这里逐项声明，只为避免编辑器保存时把整个文件
+# 的行尾重写一遍（那样会产生几千行的假 diff）。
+# Git 侧永不转换由 .gitattributes 的 `* -text` 保证，与本节相互独立。
+# ---------------------------------------------------------------------------
+
+# 这三个目录下的文件全部是 CRLF
+[{js,css,html}/**]
+end_of_line = crlf
+
+# 根目录页面：这几个是 CRLF
+[index.html]
+end_of_line = crlf
+
+[integrated.html]
+end_of_line = crlf
+
+[privacy.html]
+end_of_line = crlf
+
+[index.audio.html]
+end_of_line = crlf
+
+[default-assets-config.json]
+end_of_line = crlf
+
+# 这几个刻意是 LF
+[server.js]
+end_of_line = lf
+
+[error.html]
+end_of_line = lf
+
+# ---------------------------------------------------------------------------
+# 按类型微调
+# ---------------------------------------------------------------------------
+# Markdown 的行尾双空格是有意义的换行语法，不要自动清理
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{json,yml,yaml}]
+indent_size = 2

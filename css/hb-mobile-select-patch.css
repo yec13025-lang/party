@@ -1,0 +1,244 @@
+/*
+ * mobile-select 根节点默认带 transform，会把内部 position:fixed 变成「相对该层」定位。
+ * 根改为 fixed 铺满视口并去掉 transform。
+ */
+.ms-mobile-select {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+
+.ms-mobile-select:not(.ms-show) {
+    pointer-events: none !important;
+}
+
+.ms-mobile-select.ms-show {
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+.ms-mobile-select .ms-gray-layer {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0 !important;
+}
+
+/* 滚轮面板外层；≤767px 时由文末媒体查询改为视口居中，≥768px 时由下一则媒体查询居中 */
+.ms-mobile-select .ms-content {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    z-index: 1 !important;
+    background: #ffffff !important;
+    border-radius: 24px 24px 0 0 !important;
+    box-shadow: 0 -10px 40px rgba(17, 24, 39, 0.12) !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    transform: none !important;
+    overflow: hidden !important;
+}
+
+.ms-mobile-select.ms-show .ms-content {
+    bottom: 0 !important;
+    top: auto !important;
+}
+
+/* PC：居中卡片，四角统一圆润 */
+@media (min-width: 768px) {
+    .ms-mobile-select .ms-gray-layer {
+        background: rgba(15, 23, 42, 0.35) !important;
+    }
+
+    .ms-mobile-select .ms-content {
+        left: 50% !important;
+        right: auto !important;
+        top: 50% !important;
+        bottom: auto !important;
+        width: min(400px, 92vw) !important;
+        max-width: 400px !important;
+        transform: translate(-50%, -50%) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+        padding-bottom: 12px !important;
+        transition: opacity 0.2s ease, transform 0.2s ease !important;
+        overflow: hidden !important;
+    }
+
+    .ms-mobile-select.ms-show .ms-content {
+        bottom: auto !important;
+        top: 50% !important;
+    }
+}
+
+.ms-mobile-select .ms-btn-bar {
+    border-bottom-color: #e5e7eb !important;
+}
+
+.ms-mobile-select .ms-panel {
+    background: #ffffff !important;
+    position: relative !important;
+    touch-action: none;
+    color: #000000 !important;
+    overscroll-behavior: contain;
+}
+
+.ms-mobile-select .ms-wheels {
+    background: #f9fafb !important;
+    touch-action: none;
+    overscroll-behavior: contain;
+}
+
+.ms-mobile-select .ms-wheel {
+    touch-action: none;
+}
+
+/*
+ * 中间选中带不要用浅色半透明盖住文字，否则即使用 #000 也会被洗成灰。
+ * 仅在上下边缘做淡出，中部透明。
+ */
+.ms-mobile-select .ms-shadow-mask {
+    background: linear-gradient(
+        to bottom,
+        rgba(249, 250, 251, 0.95) 0%,
+        rgba(249, 250, 251, 0.55) 14%,
+        rgba(255, 255, 255, 0) 36%,
+        rgba(255, 255, 255, 0) 64%,
+        rgba(249, 250, 251, 0.55) 86%,
+        rgba(249, 250, 251, 0.95) 100%
+    ) !important;
+    opacity: 1 !important;
+}
+
+/*
+ * 库按每行 40px 计算选中位置（.ms-select-line top:80 = 2×40，touch 里也有 /40）。
+ * 行高必须与 40px 一致，否则选中框与文字竖向错位。
+ */
+.ms-mobile-select .ms-select-line {
+    top: 80px !important;
+    height: 40px !important;
+    box-sizing: border-box !important;
+    border-top-color: #d1d5db !important;
+    border-bottom-color: #d1d5db !important;
+    border-top-width: 1px !important;
+    border-bottom-width: 1px !important;
+}
+
+.ms-mobile-select .ms-select-container li {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: #9ca3af !important;
+    -webkit-text-fill-color: #9ca3af !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    line-height: 40px !important;
+    padding: 0 4px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+}
+
+.ms-mobile-select .ms-select-container li.hb-ms-row-active {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+.ms-mobile-select .ms-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+}
+
+.ms-mobile-select .ms-cancel,
+.ms-mobile-select .ms-ensure {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    width: 64px !important;
+    color: #000000 !important;
+}
+
+/* 只读触发框：iOS/WebKit 下避免字色被洗成透明或过浅；字号不小于 16px 减轻聚焦缩放 */
+/* 滚轮触发器外包一层，透明 button 叠在 input 上（见 index.shared.mobile-wheel.js） */
+.hb-wheel-input-wrap {
+    overflow: visible;
+}
+
+.hb-wheel-input-wrap input.hb-ms-trigger-input {
+    position: relative;
+    z-index: 1;
+}
+
+input.hb-ms-trigger-input {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* 多列滚轮在窄屏均分宽度，避免挤压到不可见 */
+.ms-mobile-select .ms-wheels {
+    display: flex !important;
+    width: 100% !important;
+}
+
+.ms-mobile-select .ms-wheel {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+}
+
+/*
+ * 小屏：与 PC 一致的视口居中卡片（生日 / 邮件发送时间滚轮），避免贴在屏幕最底端。
+ */
+@media (max-width: 767px) {
+    .ms-mobile-select .ms-gray-layer {
+        background: rgba(15, 23, 42, 0.35) !important;
+    }
+
+    .ms-mobile-select .ms-content {
+        left: 50% !important;
+        right: auto !important;
+        top: 50% !important;
+        bottom: auto !important;
+        width: min(480px, 94vw) !important;
+        max-width: none !important;
+        transform: translate(-50%, -50%) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+        padding-bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    .ms-mobile-select.ms-show .ms-content {
+        max-height: min(560px, calc(88vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))) !important;
+        bottom: auto !important;
+        top: 50% !important;
+    }
+
+    .ms-mobile-select .ms-panel {
+        max-height: min(440px, calc(88vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 120px)) !important;
+    }
+}

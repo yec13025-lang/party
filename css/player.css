@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    height: 150px;
+    /* 背景颜色由theme.js和theme.css中的主题系统控制 */
+    padding: 10px;
+    margin: 0;
+}
+
+.music-player {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.player-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.player-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.track-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
+.progress-area {
+    margin-bottom: 0;
+}
+
+.progress-bar {
+    height: 6px;
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    /* 进度条颜色由theme.css中的主题系统控制 */
+    border-radius: 10px;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    background: #fff;
+    border-radius: 50%;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid transparent;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+}
+
+.control-btn {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.play-pause {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    color: white;
+    background: #6246EA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 6px 14px rgba(98, 70, 234, 0.35);
+}
+
+.play-pause:hover {
+    transform: scale(1.04);
+}

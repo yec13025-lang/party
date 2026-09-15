@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录音播放器</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/player.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <script>
+        (function () {
+            try {
+                if (new URLSearchParams(window.location.search).get('glass') === '1') {
+                    document.documentElement.classList.add('player-glass');
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
+</head>
+<body>
+<div class="music-player">
+    <div class="player-main">
+        <button class="control-btn play-pause" aria-label="播放或暂停">▶</button>
+        <div class="player-content">
+            <div class="track-name" title="未命名音频">未命名音频</div>
+            <div class="progress-area">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="timer">
+                    <span class="current">0:00</span>
+                    <span class="duration">--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="playerAudio" preload="auto" style="display:none"></audio>
+</div>
+
+<script src="../js/theme.js"></script>
+<script src="../js/player.page.js"></script>
+</body>
+</html>

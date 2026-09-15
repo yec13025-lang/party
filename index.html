@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baidu-site-verification" content="codeva-24MyfDwVIX" />
+    <meta name="msvalidate.01" content="8AFA4499C361ABFC6AC2B6B1F21A115C" />
+    <meta name="bytedance-verification-code" content="tF3mfZ7jVCz6/omk+5mS" />
+    <title>电子贺卡、生日祝福、告白、圣诞祝福… | 奶糖小屋🍬 - 给生活加点糖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fffffe',
+                        headline: '#2b2c34',
+                        paragraph: '#2b2c34',
+                        links: '#f582ae',
+                        primary: '#f582ae',
+                        secondary: '#FFC0AD',
+                        accent: '#a8dadc',
+                        cardBg: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .transition-transform-opacity {
+                transition-property: transform, opacity;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            
+            /* 产品卡片滑动容器 */
+            .product-slider-container {
+                overflow: hidden;
+            }
+            
+            .product-slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            /* 产品卡片标签样式 */
+            .product-tag {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                font-weight: 500;
+                color: white;
+                z-index: 10;
+            }
+            
+            .product-tag.permanent {
+                background-color: #22c55e;
+            }
+            
+            .product-tag.seasonal {
+                background-color: #f97316;
+            }
+            
+            /* 移动端产品卡片样式 */
+            @media (max-width: 767px) {
+                .product-card {
+                    width: 100% !important;
+                    flex-shrink: 0;
+                }
+                
+                .product-slider {
+                    flex-direction: column;
+                    transform: none !important;
+                }
+            }
+            
+            /* PC端产品卡片样式 */
+            @media (min-width: 768px) {
+                .product-card {
+                    width: calc(50% - 32px) !important;
+                    flex-shrink: 0;
+                }
+                
+                .product-slider {
+                    flex-direction: row;
+                    gap: 64px;
+                }
+            }
+            
+            /* 滑动按钮样式 */
+            .slider-btn {
+                transition: all 0.3s ease;
+            }
+            
+            .slider-btn:hover {
+                transform: scale(1.1);
+            }
+            
+            .slider-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+    </style>
+    <!-- 为SEO优化添加的元标签 -->
+    <meta name="description"
+          content="HappyEveryday奶糖小屋🍬提供精美的电子贺卡和电子情书服务，为您的特殊时刻增添温馨与浪漫。"/>
+    <meta name="keywords" content="电子贺卡,生日祝福,电子情书,虚拟礼物,浪漫礼物,生日礼物,爱的告白,奶糖小屋🍬"/>
+    <meta name="author" content="奶糖小屋🍬"/>
+    <!-- Open Graph 标签，提升社交媒体分享效果 -->
+    <meta property="og:title" content="电子贺卡、生日祝福、告白、圣诞祝福… | 奶糖小屋🍬 - 给生活加点糖"/>
+    <meta property="og:description" content="为您的特殊时刻定制精美的电子贺卡和电子情书，以及其他种种"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="zh_CN"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="电子贺卡、生日祝福、告白、圣诞祝福… | 奶糖小屋🍬"/>
+    <meta name="twitter:description" content="为您的特殊时刻定制精美的电子贺卡和电子情书。"/>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "奶糖小屋",
+            "description": "电子贺卡、生日祝福、告白与节日主题数字礼物。",
+            "publisher": {
+                "@type": "Organization",
+                "name": "奶糖小屋",
+                    "logo": "favicon.png"
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-paragraph font-sans">
+<!-- 头部区域 -->
+<header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="index.html#hero" class="flex items-center space-x-2">
+            <img src="icon.jpg" alt="奶糖小屋" class="h-8 w-8 rounded-full object-cover" width="32" height="32">
+            <span class="text-headline font-bold text-xl">奶糖小屋🍬</span>
+        </a>
+        <!-- 桌面导航 -->
+        <nav class="hidden md:flex items-center flex-wrap gap-x-6 gap-y-2">
+            <a href="#products" class="text-paragraph hover:text-links transition-colors">产品介绍</a>
+            <a href="#about" class="text-paragraph hover:text-links transition-colors">关于我们</a>
+            <a href="#blog" class="text-paragraph hover:text-links transition-colors">博客</a>
+            <a href="#changelog" class="text-paragraph hover:text-links transition-colors">更新日志</a>
+            <a href="#contact" class="text-paragraph hover:text-links transition-colors">联系方式</a>
+            <a href="privacy.html" class="text-paragraph hover:text-links transition-colors">隐私协议</a>
+        </nav>
+        <!-- 移动端菜单按钮 -->
+        <button type="button" id="menu-toggle" class="md:hidden text-headline text-2xl focus:outline-none focus:ring-2 focus:ring-primary rounded" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    </div>
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+            <a href="#products" class="text-paragraph hover:text-links py-2 border-b border-gray-100">产品介绍</a>
+            <a href="#about" class="text-paragraph hover:text-links py-2 border-b border-gray-100">关于我们</a>
+            <a href="#blog" class="text-paragraph hover:text-links py-2 border-b border-gray-100">博客</a>
+            <a href="#changelog" class="text-paragraph hover:text-links py-2 border-b border-gray-100">更新日志</a>
+            <a href="#contact" class="text-paragraph hover:text-links py-2 border-b border-gray-100">联系方式</a>
+            <a href="privacy.html" class="text-paragraph hover:text-links py-2">隐私协议</a>
+        </div>
+    </div>
+</header>
+
+<!-- 英雄区域 -->
+<section id="hero" class="pt-28 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-headline leading-tight mb-6 text-shadow">
+                欢迎光临
+                <br>
+                <span class="text-secondary">奶糖小屋🍬</span>
+                <br>
+                <span class="text-primary">用数字传递最温暖的情感</span>
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-paragraph mb-10 max-w-2xl mx-auto">
+                为您的每一个特殊时刻增添无限温馨与浪漫
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products"
+                   class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full text-lg font-medium transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    了解产品 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about" class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-headline mb-4">关于我们</h2>
+            <p class="text-paragraph text-lg max-w-2xl mx-auto">把<span class="font-bold text-primary">数字贺卡</span>做成可打开的专属页面<br>多图、录音、背景音乐与主题动画集中在一条链接里，几分钟即可做好分享</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 mb-10">
+            <div class="bg-cardBg rounded-2xl p-8 shadow-md text-center">
+                <i class="fa fa-clock-o text-primary text-4xl mb-4"></i>
+                <h3 class="font-bold text-headline mb-2">轻量制作，即刻分享</h3>
+                <p class="text-paragraph text-sm">填表式操作<br>几分钟即可生成可分享的祝福链接与海报</p>
+            </div>
+            <div class="bg-cardBg rounded-2xl p-8 shadow-md text-center">
+                <i class="fa fa-heart text-primary text-4xl mb-4"></i>
+                <h3 class="font-bold text-headline mb-2">精美贺卡，尽在一页</h3>
+                <p class="text-paragraph text-sm">多图、语音祝福、背景音乐与页面动效可在同一祝福页呈现<br>让线上惊喜也有仪式感</p>
+            </div>
+            <div class="bg-cardBg rounded-2xl p-8 shadow-md text-center">
+                <i class="fa fa-share-alt text-primary text-4xl mb-4"></i>
+                <h3 class="font-bold text-headline mb-2">一键生成，扫码即达</h3>
+                <p class="text-paragraph text-sm">生成专属链接与海报<br>对方扫码即可打开你的祝福页</p>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 text-center">
+            <a href="#products"
+                class="inline-flex justify-center bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium shadow-md">了解产品</a>
+            <a href="#about"
+               class="inline-flex justify-center text-links hover:underline px-4 py-3">品牌故事</a>
+        </div>
+    </div>
+</section>
+
+<!-- 产品介绍 -->
+<section id="products" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-headline mb-4">精选产品系列</h2>
+            <p class="text-paragraph text-lg max-w-2xl mx-auto">
+                为您的每一个重要时刻精心准备的数字礼物，传递最真挚的情感</p>
+        </div>
+
+        <!-- 产品滑动容器 -->
+        <div class="relative max-w-6xl mx-auto">
+            <!-- 左右导航按钮 (PC端显示) -->
+            <button class="hidden md:flex absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2 bg-white rounded-full w-12 h-12 shadow-lg items-center justify-center text-primary hover:bg-primary hover:text-white transition-all z-20" id="prevBtn">
+                <i class="fa fa-chevron-left text-xl"></i>
+            </button>
+            
+            <button class="hidden md:flex absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2 bg-white rounded-full w-12 h-12 shadow-lg items-center justify-center text-primary hover:bg-primary hover:text-white transition-all z-20" id="nextBtn">
+                <i class="fa fa-chevron-right text-xl"></i>
+            </button>
+
+            <!-- 产品卡片容器 -->
+            <div class="product-slider-container overflow-hidden">
+                <div class="product-slider flex flex-col md:flex-row md:gap-16" id="productSlider">
+                    <!-- 产品1：新年快乐（节日限时） -->
+                    <div class="w-full md:flex-shrink-0 md:w-[calc(50%-32px)] bg-cardBg rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 mb-10 md:mb-0 product-card" data-index="0">
+                        <div class="h-60 bg-gradient-to-br from-red-100 to-yellow-100 flex items-center justify-center relative">
+                            <span class="absolute top-4 right-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium">节日限时</span>
+                            <i class="fa fa-fire text-primary text-6xl"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-headline mb-4">新年快乐</h3>
+                            <p class="text-paragraph mb-6">
+                                新春佳节专属数字贺卡，用美好寓意和喜庆音乐传递新年祝福，让新的一年充满好运与欢乐！
+                            </p>
+                            <ul class="space-y-2 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>新年主题动画效果</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>自定义新年祝福</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>喜庆新年音乐</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🎆 新年特效 | 🎨 新年专属主题色</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🧧 马上来财 | 🐎 专属祝福语</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>✨ 经久阅览 | ⏰ 几分钟制作完成</span>
+                                </li>
+                            </ul>
+                            </div>
+                    </div>
+
+                    <!-- 产品2：圣诞快乐（节日限时） -->
+                    <div class="w-full md:flex-shrink-0 md:w-[calc(50%-32px)] bg-cardBg rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 mb-10 md:mb-0 product-card" data-index="1">
+                        <div class="h-60 bg-gradient-to-br from-red-100 to-green-100 flex items-center justify-center relative">
+                            <span class="absolute top-4 right-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium">节日限时</span>
+                            <i class="fa fa-tree text-primary text-6xl"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-headline mb-4">圣诞快乐</h3>
+                            <p class="text-paragraph mb-6">
+                                圣诞主题数字贺卡，用雪花、圣诞树和温馨音乐传递节日祝福，让这个圣诞节更加难忘！
+                            </p>
+                            <ul class="space-y-2 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>圣诞主题动画效果</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>雪花飘落特效</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>圣诞背景音乐</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>❄️ 雪花特效 | 🎄 圣诞树动画</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🦌 圣诞麋鹿 | 🎅 圣诞老人动画</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>✨ 圣诞配色 | ⏰ 几分钟制作完成</span>
+                                </li>
+                            </ul>
+                            </div>
+                    </div>
+
+                    <!-- 产品3：生日快乐（常驻产品） -->
+                    <div class="w-full md:flex-shrink-0 md:w-[calc(50%-32px)] bg-cardBg rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 mb-10 md:mb-0 product-card" data-index="2">
+                        <div class="h-60 bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center relative">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-medium">常驻产品</span>
+                            <i class="fa fa-gift text-primary text-6xl"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-headline mb-4">生日快乐</h3>
+                            <p class="text-paragraph mb-6">
+                                不只是文字，这是一份能看能听的生日惊喜！几分钟制作完成，生成专属贺卡海报。对方扫描二维码，即刻收获惊喜！
+                            </p>
+                            <ul class="space-y-2 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>可上传8张照片</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>录制120秒语音</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>书写千字祝福语</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🔒 生日密码保护 | 📧 定时发送</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🎵 温馨背景音乐 | 🎂 蛋糕动画</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🎨 八款主题颜色 | ⏳ 倒计时动画</span>
+                                </li>
+                            </ul>
+                            </div>
+                    </div>
+
+                    <!-- 产品4：爱的告白（常驻产品） -->
+                    <div class="w-full md:flex-shrink-0 md:w-[calc(50%-32px)] bg-cardBg rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 mb-10 md:mb-0 product-card" data-index="3">
+                        <div class="h-60 bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center relative">
+                            <span class="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-medium">常驻产品</span>
+                            <i class="fa fa-heart text-primary text-6xl"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-headline mb-4">爱的告白</h3>
+                            <p class="text-paragraph mb-6">
+                                将你的爱意，打包成一封动态信笺。无论是纪念日还是日常惊喜，都让TA在扫码那刻，拆开一份心跳回忆。
+                            </p>
+                            <ul class="space-y-2 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>写下收信人与署名</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>输入您的千字爱语</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>自定义专属背景音乐</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>✨ 爱意加载动画 | 🖨️ 打字机式逐字展示</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🌸 粉色落花氛围 | 📮 生成海报扫码即达</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span>🎵 温馨背景音乐 | ⏰ 几分钟制作完成</span>
+                                </li>
+                            </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 精选博客 -->
+<section id="blog" class="py-20 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-headline mb-4">精选博客</h2>
+            <p class="text-paragraph text-lg max-w-2xl mx-auto">持续更新中</p>
+        </div>
+        <div id="home-featured-blog-grid" class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div id="home-featured-blog-loading" class="md:col-span-3 text-center py-12 text-paragraph">
+                <i class="fa fa-spinner fa-spin text-primary text-2xl mb-3 block"></i>
+                <span>正在加载精选博客…</span>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="#blog" class="inline-flex items-center text-links hover:text-links/80 font-medium">查看更多博客内容 <i class="fa fa-angle-right ml-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- 更新日志 -->
+<section id="changelog" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-headline mb-4">更新日志</h2>
+            <p class="text-paragraph text-lg max-w-2xl mx-auto">我们不断优化产品体验，带来更多惊喜与感动</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- 最近2条更新日志 -->
+            <div id="recent-changes" class="space-y-8">
+                <!-- 加载状态 -->
+                <div id="loading-indicator" class="text-center py-10">
+                    <i class="fa fa-spinner fa-spin text-primary text-3xl mb-4"></i>
+                    <p class="text-paragraph">加载中...</p>
+                </div>
+                <!-- 暂无更新状态 -->
+                <div id="no-updates" class="hidden bg-cardBg rounded-xl p-8 shadow-md text-center">
+                    <i class="fa fa-info-circle text-primary text-4xl mb-4"></i>
+                    <p class="text-paragraph text-lg">暂无更新日志</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer id="contact" class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center text-center">
+            <div class="flex items-center space-x-2 mb-6">
+                <img src="icon.jpg" alt="奶糖小屋" class="h-8 w-8 rounded-full object-cover">
+                <span class="font-bold text-xl">奶糖小屋🍬</span>
+            </div>
+            <p class="text-gray-400">
+                用数字传递最温暖的情感
+                <br>
+                让每一个特殊时刻都充满惊喜与感动
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- 留言弹窗触发按钮 -->
+<button
+        class="message-icon fixed bottom-6 left-6 w-14 h-14 bg-links text-white rounded-full shadow-lg flex items-center justify-center text-2xl cursor-pointer hover:bg-links/90 transition-all transform hover:scale-110 z-40"
+        id="messageModalBtn"
+>
+    💬
+</button>
+
+<!-- 留言弹窗 -->
+<div
+        class="message-modal fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden"
+        id="messageModal"
+>
+    <div class="bg-white rounded-2xl max-w-md w-[90%] mx-auto shadow-xl overflow-hidden">
+        <div class="bg-primary/10 p-4 flex justify-between items-center border-b">
+            <h3 class="text-xl font-bold text-headline">📝 留下您的建议</h3>
+            <span class="close text-gray-500 hover:text-gray-700 text-xl cursor-pointer">&times;</span>
+        </div>
+        <div class="p-6 space-y-4">
+            <div class="space-y-2">
+                <label class="block text-headline font-medium">
+                    留言内容 <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                        id="messageContent"
+                        placeholder="请输入您的建议..."
+                        rows="4"
+                        required
+                        class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                ></textarea>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-headline font-medium">联系方式（手机/邮箱）</label>
+                <input
+                        type="text"
+                        id="messageContact"
+                        placeholder="选填，方便我们联系您"
+                        class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all"
+                >
+            </div>
+            <button
+                    type="button"
+                    class="generate-btn w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-primary/30"
+                    onclick="handleMessageSubmit()"
+            >
+                📤 提交留言
+            </button>
+            <button
+                    type="button"
+                    class="cancel-btn w-full mt-2 border border-gray-300 text-headline font-medium py-3 px-6 rounded-xl hover:bg-gray-50 transition-all"
+                    onclick="toggleMessageForm()"
+            >
+                取消
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- 返回顶部按钮 -->
+<button id="back-to-top"
+        class="fixed bottom-6 right-6 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 invisible z-50">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- JavaScript -->
+<script>
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const expanded = !mobileMenu.classList.contains('hidden');
+        menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        // 切换图标
+        const icon = menuToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // 滚动效果
+    const header = document.getElementById('header');
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        // 头部样式变化
+        if (window.scrollY > 100) {
+            header.classList.add('py-2', 'shadow');
+            header.classList.remove('py-4');
+        } else {
+            header.classList.add('py-4');
+            header.classList.remove('py-2', 'shadow');
+        }
+
+        // 返回顶部按钮显示/隐藏
+        if (window.scrollY > 500) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+        }
+    });
+
+    // 返回顶部功能
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // 平滑滚动到锚点
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // 关闭移动端菜单
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 产品卡片悬停动画
+    const productCards = document.querySelectorAll('#products .bg-cardBg');
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-8px)';
+            card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+        });
+    });
+
+    // 产品滑动切换功能
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const productSlider = document.getElementById('productSlider');
+    const products = productSlider.querySelectorAll('.product-card');
+    let currentIndex = 0;
+    let autoScrollInterval;
+    let isPaused = false;
+    const totalProducts = products.length;
+    
+    // 计算每页显示的产品数量
+    function getItemsPerPage() {
+        return window.innerWidth >= 768 ? 2 : 1;
+    }
+    
+    // 计算最大索引
+    function getMaxIndex() {
+        const itemsPerPage = getItemsPerPage();
+        return Math.max(0, totalProducts - itemsPerPage);
+    }
+    
+    function updateSlider() {
+        // 移动端：上下滚动，不需要transform
+        if (window.innerWidth < 768) {
+            productSlider.style.transform = 'translateX(0)';
+            return;
+        }
+        
+        // PC端：横向滑动
+        const cardWidth = products[0].offsetWidth + 64; // 卡片宽度 + 间距(64px)
+        productSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // 更新按钮状态
+        updateButtonState();
+    }
+    
+    // 更新按钮状态
+    function updateButtonState() {
+        const maxIndex = getMaxIndex();
+        
+        if (prevBtn) {
+            prevBtn.style.opacity = currentIndex <= 0 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentIndex <= 0 ? 'none' : 'auto';
+        }
+        if (nextBtn) {
+            nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+        }
+    }
+    
+    // 下一张
+    function nextSlide() {
+        const maxIndex = getMaxIndex();
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // 循环回到第一张
+        }
+        updateSlider();
+    }
+    
+    // 上一张
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = getMaxIndex(); // 循环到最后
+        }
+        updateSlider();
+    }
+    
+    // 左右滑动按钮事件监听
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoScroll();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoScroll();
+        });
+    }
+    
+    // 自动滚动功能
+    function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(() => {
+            if (!isPaused && window.innerWidth >= 768) {
+                nextSlide();
+            }
+        }, 4000); // 每4秒自动滚动
+    }
+    
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+    
+    function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+    }
+    
+    // 鼠标悬停时暂停自动滚动
+    productSlider.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+    
+    productSlider.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+    
+    // 触摸滑动支持（移动端）
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    productSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isPaused = true;
+    }, { passive: true });
+    
+    productSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        isPaused = false;
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // 向左滑动，显示下一张
+                nextSlide();
+            } else {
+                // 向右滑动，显示上一张
+                prevSlide();
+            }
+            resetAutoScroll();
+        }
+    }
+    
+    // 窗口大小变化时重新计算
+    window.addEventListener('resize', () => {
+        // 确保当前索引不超出新范围
+        const maxIndex = getMaxIndex();
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+        updateSlider();
+    });
+    
+    // 初始化
+    updateSlider();
+    startAutoScroll();
+
+    // 动态加载更新日志
+    function loadLatestChangelogs() {
+        const recentChanges = document.getElementById('recent-changes');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const noUpdates = document.getElementById('no-updates');
+
+        // 隐藏静态内容，显示加载状态
+        Array.from(recentChanges.children).forEach(child => {
+            if (child !== loadingIndicator && child !== noUpdates) {
+                child.classList.add('hidden');
+            }
+        });
+        loadingIndicator.classList.remove('hidden');
+        noUpdates.classList.add('hidden');
+
+        // 异步请求最新的2条更新日志
+        fetch('/api/changelogs/latest?limit=2')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应错误');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // 隐藏加载状态
+                loadingIndicator.classList.add('hidden');
+
+                // 检查是否有数据
+                if (data && data.data && data.data.length > 0) {
+                    // 清空现有内容
+                    Array.from(recentChanges.children).forEach(child => {
+                        if (child !== loadingIndicator && child !== noUpdates) {
+                            recentChanges.removeChild(child);
+                        }
+                    });
+
+                    // 添加动态内容
+                    data.data.forEach(changelog => {
+                        const changelogElement = document.createElement('div');
+                        changelogElement.className = 'bg-cardBg rounded-xl p-6 shadow-md hover:shadow-lg transition-all';
+
+                        // 解析日期
+                        const date = new Date(changelog.updateDate);
+                        const formattedDate = date.toLocaleDateString('zh-CN', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit'
+                        }).replace(/\//g, '-');
+
+                        // 构建更新日志详情HTML
+                        let detailsHTML = '';
+                        if (changelog.details && typeof changelog.details === 'string') {
+                            // 如果details是字符串，检查是否包含列表格式
+                            if (changelog.details.includes('\n')) {
+                                const detailsList = changelog.details.split('\n').filter(item => item.trim());
+                                if (detailsList.length > 0) {
+                                    detailsHTML = `<p class="text-paragraph mb-4">${detailsList[0]}</p>`;
+                                    detailsHTML += '<ul class="space-y-2 text-paragraph">';
+                                    for (let i = 1; i < detailsList.length; i++) {
+                                        detailsHTML += `<li class="flex items-start">
+                                            <i class="fa fa-plus text-primary mt-1 mr-2"></i>
+                                            <span>${detailsList[i]}</span>
+                                        </li>`;
+                                    }
+                                    detailsHTML += '</ul>';
+                                } else {
+                                    detailsHTML = `<p class="text-paragraph mb-4">${changelog.details}</p>`;
+                                }
+                            } else {
+                                detailsHTML = `<p class="text-paragraph mb-4">${changelog.details}</p>`;
+                            }
+                        }
+
+                        changelogElement.innerHTML = `
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-xl font-bold text-headline">${changelog.title}</h3>
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">${formattedDate}</span>
+                            </div>
+                            ${detailsHTML}
+                        `;
+
+                        recentChanges.appendChild(changelogElement);
+                    });
+                } else {
+                    // 没有更新日志，显示提示
+                    noUpdates.classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('加载更新日志失败:', error);
+                // 隐藏加载状态，显示错误提示
+                loadingIndicator.classList.add('hidden');
+                noUpdates.classList.remove('hidden');
+                noUpdates.querySelector('p').textContent = '加载更新日志失败，请稍后再试';
+            });
+    }
+
+    // 页面加载完成后加载更新日志
+    document.addEventListener('DOMContentLoaded', loadLatestChangelogs);
+
+    // 留言弹窗功能
+    const messageModalBtn = document.getElementById('messageModalBtn');
+    const messageModal = document.getElementById('messageModal');
+
+    if (messageModalBtn && messageModal) {
+        // 打开留言弹窗
+        messageModalBtn.addEventListener('click', function () {
+            messageModal.style.display = 'flex';
+            const modalContent = messageModal.querySelector('.bg-white');
+            modalContent.style.opacity = '0';
+            modalContent.style.transform = 'translateY(-20px)';
+            modalContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+            setTimeout(() => {
+                modalContent.style.opacity = '1';
+                modalContent.style.transform = 'translateY(0)';
+            }, 10);
+        });
+
+        // 关闭留言弹窗
+        const closeButtons = messageModal.querySelectorAll('.close, .cancel-btn');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const modalContent = messageModal.querySelector('.bg-white');
+                modalContent.style.opacity = '0';
+                modalContent.style.transform = 'translateY(-20px)';
+
+                setTimeout(() => {
+                    messageModal.style.display = 'none';
+                }, 300);
+            });
+        });
+
+        // 点击外部关闭
+        messageModal.addEventListener('click', function (e) {
+            if (e.target === messageModal) {
+                const modalContent = messageModal.querySelector('.bg-white');
+                modalContent.style.opacity = '0';
+                modalContent.style.transform = 'translateY(-20px)';
+
+                setTimeout(() => {
+                    messageModal.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+
+    // 留言弹窗显示/隐藏函数
+    function toggleMessageForm() {
+        const modal = document.getElementById('messageModal');
+        if (modal.style.display === 'flex') {
+            const modalContent = modal.querySelector('.bg-white');
+            modalContent.style.opacity = '0';
+            modalContent.style.transform = 'translateY(-20px)';
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        } else {
+            modal.style.display = 'flex';
+            const modalContent = modal.querySelector('.bg-white');
+            modalContent.style.opacity = '0';
+            modalContent.style.transform = 'translateY(-20px)';
+            modalContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+            setTimeout(() => {
+                modalContent.style.opacity = '1';
+                modalContent.style.transform = 'translateY(0)';
+            }, 10);
+        }
+    }
+
+    // 处理留言提交
+    async function handleMessageSubmit() {
+        const contact = document.getElementById('messageContact').value.trim();
+        const content = document.getElementById('messageContent').value.trim();
+        if (!content) {
+            // 使用showToast替代alert
+            showToast('留言内容不能为空', 'warning');
+            return;
+        }
+        const btn = document.querySelector('#messageModal .generate-btn');
+        btn.disabled = true;
+        try {
+            const response = await fetch('/api/message', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({contact, content})
+            });
+            const result = await response.json();
+            if (result.code === 200) {
+                // 使用showToast替代alert
+                showToast('留言提交成功！', 'success');
+                toggleMessageForm();
+                document.getElementById('messageContact').value = '';
+                document.getElementById('messageContent').value = '';
+            } else {
+                throw new Error(result.msg || '提交失败');
+            }
+        } catch (error) {
+            // 使用showToast替代alert
+            showToast('提交失败: ' + error.message, 'error');
+        } finally {
+            btn.disabled = false;
+        }
+    }
+</script>
+
+<!-- 自定义消息提示框组件 -->
+<div id="customToast"
+     class="fixed top-20 left-1/2 transform -translate-x-1/2 rounded-xl shadow-2xl p-4 flex items-start space-x-4 max-w-md w-[90%] mx-auto text-white z-50 transition-all duration-300 opacity-0 translate-y-[-20px] pointer-events-none">
+    <div id="toastIcon"
+         class="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0">
+        <i class="fa fa-info-circle"></i>
+    </div>
+    <div class="flex-1">
+        <h4 id="toastTitle" class="font-bold text-lg mb-1 text-white"></h4>
+        <div id="toastMessage" class="font-medium text-white"></div>
+    </div>
+    <button id="toastClose" class="text-white hover:text-gray-200 transition-colors p-1">
+        <i class="fa fa-times"></i>
+    </button>
+</div>
+
+<!-- JavaScript -->
+<script src="./js/index-home-blog.js"></script>
+<script src="./js/message-modal.js"></script>
+</body>
+</html>

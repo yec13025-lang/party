@@ -1,0 +1,136 @@
+/* 虚框 + 白底 + #F68EB6 图标与文字 — 文件上传触发区 */
+.hb-upload-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px dashed #f68eb6;
+    background-color: #ffffff;
+    color: #f68eb6;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hb-upload-zone:hover {
+    background-color: #fff8fb;
+    border-color: #f68eb6;
+    color: #f68eb6;
+}
+
+.hb-upload-zone:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(246, 142, 182, 0.45);
+}
+
+/* 通用贺卡等紫色主题页（#6246EA） */
+.hb-upload-zone--purple {
+    border-color: #6246ea;
+    color: #6246ea;
+}
+
+.hb-upload-zone--purple:hover {
+    background-color: #f5f3ff;
+    border-color: #6246ea;
+    color: #6246ea;
+}
+
+.hb-upload-zone--purple:focus-within {
+    box-shadow: 0 0 0 2px rgba(98, 70, 234, 0.45);
+}
+
+/* 内联 pill 形上传（录音页「点击上传录音」） */
+.hb-upload-zone--inline {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+}
+
+/* 录音话筒按钮：白底 + 粉色虚线（与上传区一致） */
+.hb-record-mic-btn {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px dashed #f68eb6;
+}
+
+.hb-record-mic-btn:hover {
+    background-color: #fff8fb;
+}
+
+/* 编辑页「降噪」：与 hb-upload-zone--inline 同系（粉虚线胶囊），隐藏系统勾选框 */
+.hb-voice-denoise {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 0 auto;
+    padding: 0.5rem 1.35rem;
+    border-radius: 9999px;
+    border: 1px dashed #f68eb6;
+    background-color: #ffffff;
+    color: #f68eb6;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, border-style 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hb-voice-denoise:hover {
+    background-color: #fff8fb;
+}
+
+.hb-voice-denoise:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(246, 142, 182, 0.45);
+}
+
+.hb-voice-denoise__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.hb-voice-denoise:has(.hb-voice-denoise__input:checked) {
+    background-color: #fff0f6;
+    border-style: solid;
+    border-color: #f68eb6;
+}
+
+.hb-voice-denoise:has(.hb-voice-denoise__input:checked) .hb-voice-denoise__icon {
+    opacity: 1;
+}
+
+.hb-voice-denoise__icon {
+    font-size: 0.95rem;
+    line-height: 1;
+    opacity: 0.92;
+}
+
+/* 生日输入手动模式：日历图标 + 柔和底色 */
+.hb-birthday-plain {
+    background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f68eb6'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z'/%3E%3C/svg%3E") no-repeat 0.75rem center / 1.1rem;
+    border-color: #f68eb6 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hb-birthday-plain:focus {
+    border-color: #f68eb6 !important;
+    box-shadow: 0 0 0 2px rgba(246, 142, 182, 0.3);
+}

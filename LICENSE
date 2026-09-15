@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 yec13025-lang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---------------------------------------------------------------------------
+关于本许可的适用范围（重要）
+
+上述 MIT 许可仅覆盖本仓库作者原创的代码（server.js 与 js/ 下的自有脚本等）。
+
+仓库中同时包含第三方组件与素材，它们各自遵循原有授权，不在本 MIT 许可的
+覆盖范围内，包括但不限于：
+
+- js/jquery-2.1.1.min.js
+- js/qrcode.min.js
+- js/unpack-worker.js
+- js/vendor/threads.min.js
+- external/cdn.tailwindcss.com.js
+- external/font-awesome.min.css 及其字体文件
+- external/mobile-select.css
+- external/mobile-select.umd.min.js
+- fonts/ 下的字体（含字体厂商的商用授权条款）
+- img/、music/、audio/ 下的图片与音频素材
+
+其中人物照片、录音等素材可能涉及肖像权与隐私，请仅在获得授权的前提下使用。
+详见 README.md 的「许可」一节。

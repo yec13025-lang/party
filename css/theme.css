@@ -1,0 +1,871 @@
+/* 主题样式 */
+
+/* 默认粉色主题 */
+.theme-default .bg {
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(to top left, #ee9ca7 0%, #ffdde1 100%);
+    background: linear-gradient(to bottom right, #ee9ca7 0%, #ffdde1 100%);
+}
+
+.theme-color-dot.blue {
+    background-color: #6495ed;
+}
+
+.theme-color-dot.red {
+    background-color: #A23025;
+}
+
+.theme-color-dot.teal {
+    background-color: #68C2B9;
+}
+
+.theme-color-dot.green {
+    background-color: #7CA32C;
+}
+
+.theme-color-dot.orange {
+    background-color: #DE5B24;
+}
+
+.theme-color-dot.purple {
+    background-color: #BB4B5B;
+}
+
+.theme-color-dot.lemon {
+    background-color: #FBE484;
+}
+
+
+.theme-default .bgcolor {
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(top left, #ee9ca7 0%, #ffdde1 100%);
+    background: linear-gradient(to bottom right, #ee9ca7 0%, #ffdde1 100%);
+}
+
+.theme-default .link1 {
+    background: #ee9ca7;
+}
+
+.theme-default #musicToggle {
+    color: #ee9ca7;
+}
+
+/* Login页面默认主题 */
+.theme-default .wrapper {
+    background: #ee9ca7;
+    background: -webkit-linear-gradient(top left, #ee9ca7 0%, #ee9ca7 100%);
+    background: linear-gradient(to bottom right, #ee9ca7 0%, #ee9ca7 100%);
+}
+
+.theme-default form input:focus {
+    color: #79A8AE;
+}
+
+.theme-default form button {
+    color: #79A8AE;
+}
+
+/* 蓝色主题 */
+.theme-blue .bg {
+    background: #6495ed;
+    background: -webkit-linear-gradient(to top left, #6495ed 0%, #87ceeb 100%);
+    background: linear-gradient(to bottom right, #6495ed 0%, #87ceeb 100%);
+}
+
+.theme-blue .bgcolor {
+    background: #6495ed;
+    background: -webkit-linear-gradient(top left, #6495ed 0%, #87ceeb 100%);
+    background: linear-gradient(to bottom right, #6495ed 0%, #87ceeb 100%);
+}
+
+.theme-blue .link1 {
+    background: #6495ed;
+}
+
+.theme-blue #musicToggle {
+    color: #6495ed;
+}
+
+/* Login页面蓝色主题 */
+.theme-blue .wrapper {
+    background: #6495ed;
+    background: -webkit-linear-gradient(top left, #6495ed 0%, #87ceeb 100%);
+    background: linear-gradient(to bottom right, #6495ed 0%, #87ceeb 100%);
+}
+
+.theme-blue form input:focus {
+    color: #1a365d;
+}
+
+.theme-blue form button {
+    color: #1a365d;
+}
+
+/* 播放器主题样式 */
+
+/* 默认主题播放器样式 */
+.theme-default .progress {
+    background: linear-gradient(to right, #ee9ca7, #ee9ca7) !important;
+}
+
+.theme-default .progress::after {
+    border-color: #ee9ca7 !important;
+}
+
+/* 默认主题音频播放区域文本样式 */
+.theme-default .ly-txt-audio {
+    color: #ee9ca7 !important;
+}
+
+.theme-default .ly-box-audio {
+    border-color: #ee9ca7 !important;
+}
+
+.theme-default .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-default .progress-bar-slider {
+    border-color: #ee9ca7 !important;
+}
+
+.theme-default .control-btn:hover {
+    color: #ee9ca7 !important;
+}
+
+.theme-default .play-pause {
+    background-color: #ee9ca7 !important;
+    box-shadow: 0 5px 15px rgba(238, 156, 167, 0.4) !important;
+}
+
+/* 蓝色主题播放器样式 */
+.theme-blue .progress {
+    background: linear-gradient(to right, #6495ed, #6495ed) !important;
+}
+
+.theme-blue .progress::after {
+    border-color: #6495ed !important;
+}
+
+/* 蓝色主题音频播放区域文本样式 */
+.theme-blue .ly-txt-audio {
+    color: #6495ed !important;
+}
+
+.theme-blue .ly-box-audio {
+    border-color: #6495ed !important;
+}
+
+.theme-blue .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-blue .progress-bar-slider {
+    border-color: #6495ed !important;
+}
+
+.theme-blue .control-btn:hover {
+    color: #6495ed !important;
+}
+
+.theme-blue .play-pause {
+    background-color: #6495ed !important;
+    box-shadow: 0 0 10px rgba(100, 149, 237, 0.5) !important;
+}
+
+/* 中国红主题 */
+.theme-red .bg {
+    background: #A23025;
+    background: -webkit-linear-gradient(to top left, #A23025 0%, #A23025 100%);
+    background: linear-gradient(to bottom right, #A23025 0%, #A23025 100%);
+}
+
+.theme-red .bgcolor {
+    background: #A23025;
+    background: -webkit-linear-gradient(top left, #A23025 0%, #A23025 100%);
+    background: linear-gradient(to bottom right, #A23025 0%, #A23025 100%);
+}
+
+.theme-red .link1 {
+    background: #A23025;
+}
+
+.theme-red #musicToggle {
+    color: #A23025;
+}
+
+/* Login页面中国红主题 */
+.theme-red .wrapper {
+    background: #A23025;
+    background: -webkit-linear-gradient(top left, #A23025 0%, #A23025 100%);
+    background: linear-gradient(to bottom right, #A23025 0%, #A23025 100%);
+}
+
+.theme-red form input:focus {
+    color: #4d0e07;
+}
+
+.theme-red form button {
+    color: #4d0e07;
+}
+
+/* 播放器中国红主题样式 */
+.theme-red .progress {
+    background: linear-gradient(to right, #A23025, #A23025) !important;
+}
+
+.theme-red .progress::after {
+    border-color: #A23025 !important;
+}
+
+/* 中国红主题音频播放区域文本样式 */
+.theme-red .ly-txt-audio {
+    color: #A23025 !important;
+}
+
+.theme-red .ly-box-audio {
+    border-color: #A23025 !important;
+}
+
+.theme-red .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-red .progress-bar-slider {
+    border-color: #A23025 !important;
+}
+
+.theme-red .control-btn:hover {
+    color: #A23025 !important;
+}
+
+.theme-red .play-pause {
+    background-color: #A23025 !important;
+    box-shadow: 0 0 10px rgba(162, 48, 37, 0.5) !important;
+}
+
+/* 提夫尼蓝主题 */
+.theme-teal .bg {
+    background: #68C2B9;
+    background: -webkit-linear-gradient(to top left, #68C2B9 0%, #68C2B9 100%);
+    background: linear-gradient(to bottom right, #68C2B9 0%, #68C2B9 100%);
+}
+
+.theme-teal .bgcolor {
+    background: #68C2B9;
+    background: -webkit-linear-gradient(top left, #68C2B9 0%, #68C2B9 100%);
+    background: linear-gradient(to bottom right, #68C2B9 0%, #68C2B9 100%);
+}
+
+.theme-teal .link1 {
+    background: #68C2B9;
+}
+
+.theme-teal #musicToggle {
+    color: #68C2B9;
+}
+
+/* Login页面提夫尼蓝主题 */
+.theme-teal .wrapper {
+    background: #68C2B9;
+    background: -webkit-linear-gradient(top left, #68C2B9 0%, #68C2B9 100%);
+    background: linear-gradient(to bottom right, #68C2B9 0%, #68C2B9 100%);
+}
+
+.theme-teal form input:focus {
+    color: #1c665e;
+}
+
+.theme-teal form button {
+    color: #1c665e;
+}
+
+/* 播放器提夫尼蓝主题样式 */
+.theme-teal .progress {
+    background: linear-gradient(to right, #68C2B9, #68C2B9) !important;
+}
+
+.theme-teal .progress::after {
+    border-color: #68C2B9 !important;
+}
+
+/* 提夫尼蓝主题音频播放区域文本样式 */
+.theme-teal .ly-txt-audio {
+    color: #68C2B9 !important;
+}
+
+.theme-teal .ly-box-audio {
+    border-color: #68C2B9 !important;
+}
+
+.theme-teal .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-teal .progress-bar-slider {
+    border-color: #68C2B9 !important;
+}
+
+.theme-teal .control-btn:hover {
+    color: #68C2B9 !important;
+}
+
+.theme-teal .play-pause {
+    background-color: #68C2B9 !important;
+    box-shadow: 0 0 10px rgba(104, 194, 185, 0.5) !important;
+}
+
+/* 牛油果绿主题 */
+.theme-green .bg {
+    background: #7CA32C;
+    background: -webkit-linear-gradient(to top left, #7CA32C 0%, #7CA32C 100%);
+    background: linear-gradient(to bottom right, #7CA32C 0%, #7CA32C 100%);
+}
+
+.theme-green .bgcolor {
+    background: #7CA32C;
+    background: -webkit-linear-gradient(top left, #7CA32C 0%, #7CA32C 100%);
+    background: linear-gradient(to bottom right, #7CA32C 0%, #7CA32C 100%);
+}
+
+.theme-green .link1 {
+    background: #7CA32C;
+}
+
+.theme-green #musicToggle {
+    color: #7CA32C;
+}
+
+/* Login页面牛油果绿主题 */
+.theme-green .wrapper {
+    background: #7CA32C;
+    background: -webkit-linear-gradient(top left, #7CA32C 0%, #7CA32C 100%);
+    background: linear-gradient(to bottom right, #7CA32C 0%, #7CA32C 100%);
+}
+
+.theme-green form input:focus {
+    color: #2d4208;
+}
+
+.theme-green form button {
+    color: #2d4208;
+}
+
+/* 播放器牛油果绿主题样式 */
+.theme-green .progress {
+    background: linear-gradient(to right, #7CA32C, #7CA32C) !important;
+}
+
+.theme-green .progress::after {
+    border-color: #7CA32C !important;
+}
+
+/* 牛油果绿主题音频播放区域文本样式 */
+.theme-green .ly-txt-audio {
+    color: #7CA32C !important;
+}
+
+.theme-green .ly-box-audio {
+    border-color: #7CA32C !important;
+}
+
+.theme-green .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-green .progress-bar-slider {
+    border-color: #7CA32C !important;
+}
+
+.theme-green .control-btn:hover {
+    color: #7CA32C !important;
+}
+
+.theme-green .play-pause {
+    background-color: #7CA32C !important;
+    box-shadow: 0 0 10px rgba(124, 163, 44, 0.5) !important;
+}
+
+/* 爱马仕橙主题 */
+.theme-orange .bg {
+    background: #DE5B24;
+    background: -webkit-linear-gradient(to top left, #DE5B24 0%, #DE5B24 100%);
+    background: linear-gradient(to bottom right, #DE5B24 0%, #DE5B24 100%);
+}
+
+.theme-orange .bgcolor {
+    background: #DE5B24;
+    background: -webkit-linear-gradient(top left, #DE5B24 0%, #DE5B24 100%);
+    background: linear-gradient(to bottom right, #DE5B24 0%, #DE5B24 100%);
+}
+
+.theme-orange .link1 {
+    background: #DE5B24;
+}
+
+.theme-orange #musicToggle {
+    color: #DE5B24;
+}
+
+/* Login页面爱马仕橙主题 */
+.theme-orange .wrapper {
+    background: #DE5B24;
+    background: -webkit-linear-gradient(top left, #DE5B24 0%, #DE5B24 100%);
+    background: linear-gradient(to bottom right, #DE5B24 0%, #DE5B24 100%);
+}
+
+.theme-orange form input:focus {
+    color: #6d1b00;
+}
+
+.theme-orange form button {
+    color: #6d1b00;
+}
+
+/* 播放器爱马仕橙主题样式 */
+.theme-orange .progress {
+    background: linear-gradient(to right, #DE5B24, #DE5B24) !important;
+}
+
+.theme-orange .progress::after {
+    border-color: #DE5B24 !important;
+}
+
+/* 爱马仕橙主题音频播放区域文本样式 */
+.theme-orange .ly-txt-audio {
+    color: #DE5B24 !important;
+}
+
+.theme-orange .ly-box-audio {
+    border-color: #DE5B24 !important;
+}
+
+.theme-orange .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-orange .progress-bar-slider {
+    border-color: #DE5B24 !important;
+}
+
+.theme-orange .control-btn:hover {
+    color: #DE5B24 !important;
+}
+
+.theme-orange .play-pause {
+    background-color: #DE5B24 !important;
+    box-shadow: 0 0 10px rgba(222, 91, 36, 0.5) !important;
+}
+
+/* 玫瑰主题 */
+.theme-purple .bg {
+    background: #BB4B5B;
+    background: -webkit-linear-gradient(to top left, #BB4B5B 0%, #BB4B5B 100%);
+    background: linear-gradient(to bottom right, #BB4B5B 0%, #BB4B5B 100%);
+}
+
+.theme-purple .bgcolor {
+    background: #BB4B5B;
+    background: -webkit-linear-gradient(top left, #BB4B5B 0%, #BB4B5B 100%);
+    background: linear-gradient(to bottom right, #BB4B5B 0%, #BB4B5B 100%);
+}
+
+.theme-purple .link1 {
+    background: #BB4B5B;
+}
+
+.theme-purple #musicToggle {
+    color: #BB4B5B;
+}
+
+/* Login页面玫瑰主题 */
+.theme-purple .wrapper {
+    background: #BB4B5B;
+    background: -webkit-linear-gradient(top left, #BB4B5B 0%, #BB4B5B 100%);
+    background: linear-gradient(to bottom right, #BB4B5B 0%, #BB4B5B 100%);
+}
+
+.theme-purple form input:focus {
+    color: #4d1522;
+}
+
+.theme-purple form button {
+    color: #4d1522;
+}
+
+/* 播放器月季主题样式 */
+.theme-purple .progress {
+    background: linear-gradient(to right, #BB4B5B, #BB4B5B) !important;
+}
+
+.theme-purple .progress::after {
+    border-color: #BB4B5B !important;
+}
+
+/* 月季主题音频播放区域文本样式 */
+.theme-purple .ly-txt-audio {
+    color: #BB4B5B !important;
+}
+
+.theme-purple .ly-box-audio {
+    border-color: #BB4B5B !important;
+}
+
+.theme-purple .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-purple .progress-bar-slider {
+    border-color: #BB4B5B !important;
+}
+
+.theme-purple .control-btn:hover {
+    color: #BB4B5B !important;
+}
+
+.theme-purple .play-pause {
+    background-color: #BB4B5B !important;
+    box-shadow: 0 0 10px rgba(187, 75, 91, 0.5) !important;
+}
+
+/* 柠檬黄主题 */
+.theme-lemon .bg {
+    background: #FBE484;
+    background: -webkit-linear-gradient(to top left, #FBE484 0%, #FBE484 100%);
+    background: linear-gradient(to bottom right, #FBE484 0%, #FBE484 100%);
+}
+
+.theme-lemon .bgcolor {
+    background: #FBE484;
+    background: -webkit-linear-gradient(top left, #FBE484 0%, #FBE484 100%);
+    background: linear-gradient(to bottom right, #FBE484 0%, #FBE484 100%);
+}
+
+.theme-lemon .link1 {
+    background: #FBE484;
+}
+
+.theme-lemon #musicToggle {
+    color: #FBE484;
+}
+
+/* Login页面柠檬黄主题 */
+.theme-lemon .wrapper {
+    background: #FBE484;
+    background: -webkit-linear-gradient(top left, #FBE484 0%, #FBE484 100%);
+    background: linear-gradient(to bottom right, #FBE484 0%, #FBE484 100%);
+}
+
+.theme-lemon form input:focus {
+    color: #8A7A10;
+}
+
+.theme-lemon form button {
+    color: #8A7A10;
+}
+
+/* 播放器柠檬黄主题样式 */
+.theme-lemon .progress {
+    background: linear-gradient(to right, #FBE484, #FBE484) !important;
+}
+
+.theme-lemon .progress::after {
+    border-color: #FBE484 !important;
+}
+
+/* 柠檬黄主题音频播放区域文本样式 */
+.theme-lemon .ly-txt-audio {
+    color: #FBE484 !important;
+}
+
+.theme-lemon .ly-box-audio {
+    border-color: #FBE484 !important;
+}
+
+.theme-lemon .progress-bar {
+    background: #e0e0e0 !important;
+}
+
+.theme-lemon .progress-bar-slider {
+    border-color: #FBE484 !important;
+}
+
+.theme-lemon .control-btn:hover {
+    color: #FBE484 !important;
+}
+
+.theme-lemon .play-pause {
+    background-color: #FBE484 !important;
+    box-shadow: 0 0 10px rgba(251, 228, 132, 0.5) !important;
+}
+
+body {
+    transition: background-color 0.3s ease;
+}
+
+/* Automation页面主题样式 */
+.theme-default .body--ready {
+    background: -webkit-linear-gradient(top, #ee9ca7 0%, #ffdde1 120%);
+    background: -moz-linear-gradient(top, #ee9ca7 0%, #ffdde1 120%);
+    background: -o-linear-gradient(top, #ee9ca7 0%, #ffdde1 120%);
+    background: -ms-linear-gradient(top, #ee9ca7 0%, #ffdde1 120%);
+    background: linear-gradient(top, #ee9ca7 0%, #ffdde1 120%);
+}
+
+.theme-blue .body--ready {
+    background: -webkit-linear-gradient(top, #6495ed 0%, #4169e1 120%);
+    background: -moz-linear-gradient(top, #6495ed 0%, #4169e1 120%);
+    background: -o-linear-gradient(top, #6495ed 0%, #4169e1 120%);
+    background: -ms-linear-gradient(top, #6495ed 0%, #4169e1 120%);
+    background: linear-gradient(top, #6495ed 0%, #4169e1 120%);
+}
+
+.theme-red .body--ready {
+    background: -webkit-linear-gradient(top, #A23025 0%, #7a1e16 120%);
+    background: -moz-linear-gradient(top, #A23025 0%, #7a1e16 120%);
+    background: -o-linear-gradient(top, #A23025 0%, #7a1e16 120%);
+    background: -ms-linear-gradient(top, #A23025 0%, #7a1e16 120%);
+    background: linear-gradient(top, #A23025 0%, #7a1e16 120%);
+}
+
+.theme-teal .body--ready {
+    background: -webkit-linear-gradient(top, #68C2B9 0%, #3a9e93 120%);
+    background: -moz-linear-gradient(top, #68C2B9 0%, #3a9e93 120%);
+    background: -o-linear-gradient(top, #68C2B9 0%, #3a9e93 120%);
+    background: -ms-linear-gradient(top, #68C2B9 0%, #3a9e93 120%);
+    background: linear-gradient(top, #68C2B9 0%, #3a9e93 120%);
+}
+
+.theme-green .body--ready {
+    background: -webkit-linear-gradient(top, #7CA32C 0%, #537a14 120%);
+    background: -moz-linear-gradient(top, #7CA32C 0%, #537a14 120%);
+    background: -o-linear-gradient(top, #7CA32C 0%, #537a14 120%);
+    background: -ms-linear-gradient(top, #7CA32C 0%, #537a14 120%);
+    background: linear-gradient(top, #7CA32C 0%, #537a14 120%);
+}
+
+.theme-orange .body--ready {
+    background: -webkit-linear-gradient(top, #DE5B24 0%, #a83b10 120%);
+    background: -moz-linear-gradient(top, #DE5B24 0%, #a83b10 120%);
+    background: -o-linear-gradient(top, #DE5B24 0%, #a83b10 120%);
+    background: -ms-linear-gradient(top, #DE5B24 0%, #a83b10 120%);
+    background: linear-gradient(top, #DE5B24 0%, #a83b10 120%);
+}
+
+.theme-purple .body--ready {
+    background: -webkit-linear-gradient(top, #BB4B5B 0%, #882c3b 120%);
+    background: -moz-linear-gradient(top, #BB4B5B 0%, #882c3b 120%);
+    background: -o-linear-gradient(top, #BB4B5B 0%, #882c3b 120%);
+    background: -ms-linear-gradient(top, #BB4B5B 0%, #882c3b 120%);
+    background: linear-gradient(top, #BB4B5B 0%, #882c3b 120%);
+}
+
+/* 柠檬黄主题Automation页面样式 */
+.theme-lemon .body--ready {
+    background: -webkit-linear-gradient(top, #FBE484 0%, #E6D260 120%);
+    background: -moz-linear-gradient(top, #FBE484 0%, #E6D260 120%);
+    background: -o-linear-gradient(top, #FBE484 0%, #E6D260 120%);
+    background: -ms-linear-gradient(top, #FBE484 0%, #E6D260 120%);
+    background: linear-gradient(top, #FBE484 0%, #E6D260 120%);
+}
+
+/* 滚动提示样式 */
+.theme-default #scrollTip {
+    color: #ffffff;
+    background-color: rgba(238, 156, 167, 0.9);
+    box-shadow: 0 2px 10px rgba(238, 156, 167, 0.7);
+}
+
+.theme-blue #scrollTip {
+    color: #ffffff;
+    background-color: rgba(100, 149, 237, 0.9);
+    box-shadow: 0 2px 10px rgba(100, 149, 237, 0.7);
+}
+
+.theme-red #scrollTip {
+    color: #ffffff;
+    background-color: rgba(162, 48, 37, 0.9);
+    box-shadow: 0 2px 10px rgba(162, 48, 37, 0.7);
+}
+
+.theme-teal #scrollTip {
+    color: #ffffff;
+    background-color: rgba(104, 194, 185, 0.9);
+    box-shadow: 0 2px 10px rgba(104, 194, 185, 0.7);
+}
+
+.theme-green #scrollTip {
+    color: #ffffff;
+    background-color: rgba(124, 163, 44, 0.9);
+    box-shadow: 0 2px 10px rgba(124, 163, 44, 0.7);
+}
+
+.theme-orange #scrollTip {
+    color: #ffffff;
+    background-color: rgba(222, 91, 36, 0.9);
+    box-shadow: 0 2px 10px rgba(222, 91, 36, 0.7);
+}
+
+.theme-purple #scrollTip {
+    color: #ffffff;
+    background-color: rgba(187, 75, 91, 0.9);
+    box-shadow: 0 2px 10px rgba(187, 75, 91, 0.7);
+}
+
+.theme-lemon #scrollTip {
+    color: #333333;
+    background-color: rgba(252, 211, 77, 0.9);
+    box-shadow: 0 2px 10px rgba(252, 211, 77, 0.7);
+}
+
+/* 滚动条样式 */
+.ly-txt84-content {
+    /* Firefox滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #ee9ca7 rgba(255, 255, 255, 0.2);
+}
+
+.theme-default .ly-txt84-content {
+    scrollbar-color: #ee9ca7 rgba(255, 255, 255, 0.2);
+}
+
+.theme-blue .ly-txt84-content {
+    scrollbar-color: #6495ed rgba(255, 255, 255, 0.2);
+}
+
+.theme-red .ly-txt84-content {
+    scrollbar-color: #A23025 rgba(255, 255, 255, 0.2);
+}
+
+.theme-teal .ly-txt84-content {
+    scrollbar-color: #68C2B9 rgba(255, 255, 255, 0.2);
+}
+
+.theme-green .ly-txt84-content {
+    scrollbar-color: #7CA32C rgba(255, 255, 255, 0.2);
+}
+
+.theme-orange .ly-txt84-content {
+    scrollbar-color: #DE5B24 rgba(255, 255, 255, 0.2);
+}
+
+.theme-purple .ly-txt84-content {
+    scrollbar-color: #BB4B5B rgba(255, 255, 255, 0.2);
+}
+
+.theme-lemon .ly-txt84-content {
+    scrollbar-color: #fcd34d rgba(255, 255, 255, 0.2);
+}
+
+/* Webkit滚动条样式 */
+.ly-txt84-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ly-txt84-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.theme-default .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #ee9ca7;
+    border-radius: 4px;
+}
+
+.theme-blue .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #6495ed;
+    border-radius: 4px;
+}
+
+.theme-red .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #A23025;
+    border-radius: 4px;
+}
+
+.theme-teal .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #68C2B9;
+    border-radius: 4px;
+}
+
+.theme-green .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #7CA32C;
+    border-radius: 4px;
+}
+
+.theme-orange .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #DE5B24;
+    border-radius: 4px;
+}
+
+.theme-purple .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #BB4B5B;
+    border-radius: 4px;
+}
+
+.theme-lemon .ly-txt84-content::-webkit-scrollbar-thumb {
+    background-color: #fcd34d;
+    border-radius: 4px;
+}
+
+/* ========== player.html ?glass=1：嵌入深色/霓虹页，毛玻璃与霓虹配色 ========== */
+html.player-glass body {
+    background: transparent !important;
+    min-height: 200px;
+    height: auto;
+    padding: 8px;
+}
+
+html.player-glass .music-player {
+    background: rgba(26, 26, 46, 0.42) !important;
+    border: 1px solid rgba(5, 217, 232, 0.45);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+    backdrop-filter: blur(16px) saturate(1.35);
+    -webkit-backdrop-filter: blur(16px) saturate(1.35);
+}
+
+html.player-glass .timer {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+html.player-glass .progress-bar {
+    background: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.player-glass .progress {
+    background: linear-gradient(to right, #ff2a6d, #05d9e8) !important;
+}
+
+html.player-glass .progress::after {
+    border: 2px solid #ffffff !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.65) !important;
+}
+
+html.player-glass .control-btn {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+html.player-glass .control-btn:hover {
+    color: #ffffff !important;
+}
+
+html.player-glass .play-pause {
+    background: linear-gradient(135deg, #ff2a6d, #05d9e8) !important;
+    box-shadow: 0 4px 18px rgba(5, 217, 232, 0.5) !important;
+}
+
+/* 统一播放器粉色风格（覆盖主题色） */
+.music-player .play-pause {
+    background: #ea7dad !important;
+    box-shadow: 0 6px 14px rgba(234, 125, 173, 0.35) !important;
+}
+
+.music-player .progress {
+    background: linear-gradient(90deg, #f28bb5, #ea6ea7) !important;
+}
+
+.music-player .progress::after {
+    border-color: #ea7dad !important;
+}

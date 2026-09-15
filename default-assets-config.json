@@ -1,0 +1,132 @@
+{
+    "code":  200,
+    "msg":  "本地离线配置",
+    "data":  {
+                 "imageGroups":  [
+                                     {
+                                         "id":  "default-man",
+                                         "name":  "默认图片-男生",
+                                         "enabled":  true,
+                                         "sort":  10,
+                                         "images":  [
+                                                        "./img/rec/default-man/img-20260504144427-135569e867694fe1892c68b763c29158.jpg",
+                                                        "./img/rec/default-man/img-20260504144427-adb97b5258c64215bbfd70b054c3f0c1.png",
+                                                        "./img/rec/default-man/img-20260504144429-1b0b3a48c4134380a5b1daf9b4269980.jpg",
+                                                        "./img/rec/default-man/img-20260504144429-a921c923773f4969bdeb933698dfda83.jpg",
+                                                        "./img/rec/default-man/img-20260504144429-f4b77798a33147eca454509c73e4e593.jpg",
+                                                        "./img/rec/default-man/img-20260504144429-abf51cbe6b3847148382df439d536e72.jpg",
+                                                        "./img/rec/default-man/img-20260504144429-259a33b9e1db46cfb060e119f689155d.png",
+                                                        "./img/rec/default-man/img-20260504144429-944a1c1d2bb84157bc1a9ab8305aca0c.jpg"
+                                                    ]
+                                     },
+                                     {
+                                         "id":  "default-woman",
+                                         "name":  "默认图片-女生",
+                                         "enabled":  true,
+                                         "sort":  20,
+                                         "images":  [
+                                                        "./img/rec/default-woman/img-20260504144506-bbfca26fbceb493b8ded5a702d316509.jpg",
+                                                        "./img/rec/default-woman/img-20260504144506-3f524d2be06142d79960223f7f3d4d31.jpeg",
+                                                        "./img/rec/default-woman/img-20260504144506-86cd0e3b298c4b329f56b960f638943e.jpg",
+                                                        "./img/rec/default-woman/img-20260504144505-d77b77b39b714a358f689096278be207.png",
+                                                        "./img/rec/default-woman/img-20260504144506-0cdfca833995460c86100e11cc4e4367.jpg",
+                                                        "./img/rec/default-woman/img-20260504144506-e06215d0cfd6431099715fbb0dd7d79b.jpg",
+                                                        "./img/rec/default-woman/img-20260504144506-977f5326998345bd84eecf5c3e7257fb.jpeg",
+                                                        "./img/rec/default-woman/img-20260504144506-94c363e2de544618b5ab1bb6459b8a60.jpg"
+                                                    ]
+                                     },
+                                     {
+                                         "id":  "test-3",
+                                         "name":  "test-3",
+                                         "enabled":  true,
+                                         "sort":  30,
+                                         "images":  [
+                                                        "./img/rec/test-3/img-20260504150832-dc2b08e2622d4032bb0811f9db824b0d.jpg",
+                                                        "./img/rec/test-3/img-20260504150833-08ee52f7476248fa9f1751ad2ef9da87.jpg",
+                                                        "./img/rec/test-3/img-20260504150828-5a66d387a4fa4e159815d9f6521d53c9.png",
+                                                        "./img/rec/test-3/img-20260504150833-9695cbe0409f4f5d9b09c11dba05295f.jpg",
+                                                        "./img/rec/test-3/img-20260504150832-3360d84f9b734d54985aff598911cc00.png",
+                                                        "./img/rec/test-3/img-20260504150833-11de2573fd21412489f218a963a8b2c4.jpg",
+                                                        "./img/rec/test-3/img-20260504150833-75f89d74fbb948738f79af8b609d1070.jpg",
+                                                        "./img/rec/test-3/img-20260504150833-811d972bfc934486a172843d362deb21.jpg"
+                                                    ]
+                                     },
+                                     {
+                                         "id":  "test-4",
+                                         "name":  "test-4",
+                                         "enabled":  true,
+                                         "sort":  40,
+                                         "images":  [
+                                                        "./img/rec/test-4/img-20260504151345-a8f61d5be04d4d908faf9788e84250c7.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-bb084e9ef360420d9d8b8353d06ad6ab.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-c7cb0f73a2d645f39a93f69914211c8e.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-d8fef957fa20491dbdf2f70e27f7e1a1.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-fd762f0ab6554270ba84efe09689ba67.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-031582fb6e5c480b8bc0e02bad2debb2.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-83af15c2cd3641d3988eefff1c297ba5.jpg",
+                                                        "./img/rec/test-4/img-20260504151345-c50177b8002745878446f5c6db994e6a.jpg"
+                                                    ]
+                                     },
+                                     {
+                                         "id":  "test-5",
+                                         "name":  "test-5",
+                                         "enabled":  true,
+                                         "sort":  50,
+                                         "images":  [
+                                                        "./img/rec/test-5/img-20260524150719-cc76f41b815d4ffa8544524d1e95c307.jpg",
+                                                        "./img/rec/test-5/img-20260524150731-65b88528c07b42ccb898809adb7d0338.jpg",
+                                                        "./img/rec/test-5/img-20260524150736-28f1aee47b5647588d7e21e9999f41ae.jpg",
+                                                        "./img/rec/test-5/img-20260524150741-9033f265927e42209370ec2ad8b8e120.jpg",
+                                                        "./img/rec/test-5/img-20260524150747-34ee5b10ac5d46c9b44d875f1cd03516.jpg",
+                                                        "./img/rec/test-5/img-20260524150753-71617d870259414b83cdb50bee3cede3.jpg",
+                                                        "./img/rec/test-5/img-20260524150759-f84e2c63bd55454db64dfbfc3c0d169b.jpg",
+                                                        "./img/rec/test-5/img-20260524150804-10d0f611a6844deb9e689db176f62f47.jpg"
+                                                    ]
+                                     }
+                                 ],
+                 "musicItems":  [
+                                    {
+                                        "id":  "music-5de3020a5f704ee881936e2152bc6c67",
+                                        "name":  "生日快乐纯音乐",
+                                        "url":  "/music/rec/music-20260504144711-07288ce48e564ecc8f7cacd79f7a35b7.mp3",
+                                        "enabled":  true,
+                                        "sort":  10
+                                    },
+                                    {
+                                        "id":  "music-d4f80e1ef1f64e63bc9939531cca20ec",
+                                        "name":  "happy birthday-8bit",
+                                        "url":  "/music/rec/music-20260504145111-fd434cdc45694c97857ada6d0fcd5b94.mp3",
+                                        "enabled":  true,
+                                        "sort":  20
+                                    },
+                                    {
+                                        "id":  "music-e99ac82cb15e4b6ca104f152461c1d57",
+                                        "name":  "生日祝福歌",
+                                        "url":  "/music/rec/music-20260504145139-f2f44a47303045d5b0624b5cae289ca0.mp3",
+                                        "enabled":  true,
+                                        "sort":  30
+                                    },
+                                    {
+                                        "id":  "music-8fb7404f9e594526bfa3847115872c3e",
+                                        "name":  "HBD To You",
+                                        "url":  "/music/rec/music-20260504150547-8fdf4e74dac64cf59317b5a09795ea64.mp3",
+                                        "enabled":  true,
+                                        "sort":  40
+                                    },
+                                    {
+                                        "id":  "music-89a8023f8965419c951b24ba8a3ba212",
+                                        "name":  "Celebrate",
+                                        "url":  "/music/rec/music-20260524151157-a881cd87f7c34b83b5c0310e97b12355.mp3",
+                                        "enabled":  true,
+                                        "sort":  50
+                                    },
+                                    {
+                                        "id":  "music-598857ad511c428082fa2c6891eb8f08",
+                                        "name":  "Happy Birthday  Bulan Sutena",
+                                        "url":  "/music/rec/music-20260524151414-11df4942160b466b939d4fd42867d6f0.mp3",
+                                        "enabled":  true,
+                                        "sort":  60
+                                    }
+                                ]
+             }
+}

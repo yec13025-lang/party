@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐@奶糖小屋🍬</title>
+    <script src="./external/cdn.tailwindcss.com.js"></script>
+    <link href="./external/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fffffe',
+                        headline: '#2b2c34',
+                        paragraph: '#2b2c34',
+                        links: '#f582ae',
+                        linksAlt: '#6246ea',
+                        primary: '#f582ae',
+                        secondary: '#6246EA',
+                        accent: '#a8dadc',
+                        cardBg: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .transition-all-300 {
+                transition: all 300ms ease;
+            }
+
+            .gradient-bg {
+                background: linear-gradient(135deg, #fff 0%, #fef2f4 100%);
+            }
+
+            .form-input-focus {
+                @apply focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none shadow-md hover:shadow-lg;
+            }
+
+            .gradient-text {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-links to-linksAlt;
+            }
+
+            .animate-pulse-red {
+                animation: pulse-red 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+
+            @keyframes pulse-red {
+                0%, 100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.2;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./external/mobile-select.css">
+    <link rel="stylesheet" href="./css/hb-mobile-select-patch.css">
+    <link rel="stylesheet" href="./css/hb-upload-zone.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <script src="./js/qrcode.min.js"></script>
+    <script src="./js/token-validation.js"></script>
+    <!-- 为SEO优化添加的元标签 -->
+    <meta name="description"
+          content="奶糖小屋🍬录音版 - 为您的朋友生成专属浪漫生日祝福网页，可添加录音祝福，简单易用，快速生成！">
+    <meta name="keywords" content="生日贺卡,生日祝福,电子贺卡,祝福网页,生日礼物,录音祝福">
+    <meta name="author" content="奶糖小屋🍬">
+</head>
+<body class="bg-background text-paragraph font-sans">
+<!-- 头部区域 -->
+<header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <img src="icon.jpg" alt="奶糖小屋" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-headline font-bold text-xl">奶糖小屋🍬</span>
+        </div>
+    </div>
+</header>
+
+<!-- 主要内容区域 -->
+<main class="container mx-auto px-4 pt-28 pb-12">
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+        <!-- 头部标题 -->
+        <div class="bg-links text-white p-6 md:p-10 text-center">
+            <h2 id="pageModeTitle" class="text-2xl md:text-3xl font-bold mb-2" data-title-create="生日二维码(录音款)" data-title-edit="生日二维码(修改页)">生日二维码(录音款)</h2>
+        </div>
+
+        <!-- 表单区域 -->
+        <div class="p-6 md:p-8">
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <label class="text-headline font-medium">
+                            寿星昵称 <span class="text-red-500">*</span>
+                        </label>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="name" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                    </div>
+                    <input
+                            type="text"
+                            id="name"
+                            placeholder="输入寿星名字"
+                            class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all"
+                    >
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <label class="text-headline font-medium">
+                            生日 <span class="text-red-500">*</span>
+                        </label>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="birthday" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                        <button type="button" data-hb-toggle="birthday"
+                                class="ml-auto inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 bg-transparent hover:bg-gray-100 rounded-full px-2.5 py-1 transition-colors cursor-pointer border-0 shrink-0">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>手动
+                        </button>
+                    </div>
+                    <input
+                            type="text"
+                            id="birthday"
+                            class="w-full min-w-0 box-border px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all"
+                            data-hb-picker="wheel"
+                            readonly
+                    >
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <label class="text-headline font-medium">
+                            发送人昵称 <span class="text-red-500">*</span>
+                        </label>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="sender" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                    </div>
+                    <input
+                            type="text"
+                            id="sender"
+                            placeholder="你的名字"
+                            class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all"
+                    >
+                </div>
+
+                <div class="space-y-4">
+                    <label class="block text-headline font-medium">主题色</label>
+                    <div class="grid grid-cols-4 sm:grid-cols-8 gap-3">
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="pink" checked class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #ee9ca7;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">樱桃粉</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="blue" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #6495ed;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">天空蓝</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="red" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #A23025;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">中国红</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="teal" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #68C2B9;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">提夫尼蓝</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="green" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #7CA32C;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">牛油果绿</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="orange" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #DE5B24;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">爱马仕橙</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="purple" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #BB4B5B;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">玫瑰紫</span>
+                        </label>
+                        <label class="theme-color-option cursor-pointer flex flex-col items-center">
+                            <input type="radio" name="themeColor" value="lemon" class="hidden">
+                            <span class="theme-color-dot w-10 h-10 rounded-full border-2 border-transparent checked:border-primary transition-all flex items-center justify-center"
+                                  style="background-color: #FBE484;">
+                                    <i class="fa fa-check text-white opacity-0 checked:opacity-100 transition-opacity"></i>
+                                </span>
+                            <span class="theme-color-text text-xs mt-1">柠檬黄</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="min-w-0">
+                            <label class="text-headline font-medium leading-none">祝福语</label>
+                            
+                        </div>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="blessing" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                        <div class="ml-auto flex items-center gap-1.5 pb-1 whitespace-nowrap overflow-x-auto">
+                            <button type="button" id="randomBlessingBtn" class="inline-flex items-center gap-1 bg-links hover:bg-links/90 text-white text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap"><i class="fa fa-random"></i><span class="js-btn-label">换一条</span></button>
+                            <button type="button" id="clearBlessingBtn" class="inline-flex items-center gap-1 bg-white hover:bg-gray-50 text-gray-600 border border-gray-300 text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap"><i class="fa fa-trash-o text-gray-600"></i><span>清空</span></button>
+                        </div>
+                    </div>
+                    <textarea
+                            id="blessingMessage"
+                            placeholder="请输入祝福语"
+                            rows="4"
+                            class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                    ></textarea>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="min-w-0">
+                            <label class="text-headline font-medium leading-none">图片</label>
+                        </div>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="photos" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                        <div class="ml-auto flex items-center gap-1.5 pb-1 whitespace-nowrap overflow-x-auto">
+                            <button type="button" id="useRecommendedImagesBtn" class="inline-flex items-center gap-1 bg-links hover:bg-links/90 text-white text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap">
+                                <span>使用推荐图片</span>
+                            </button>
+                            <button type="button" id="switchRecommendedImagesBtn" class="inline-flex items-center gap-1 bg-white hover:bg-gray-50 border border-[#f68eb6] text-[#f68eb6] text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap">
+                                <i class="fa fa-random" aria-hidden="true"></i><span>换一组</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- 隐藏原始文件输入框 -->
+                        <input type="file" id="imageUpload" multiple accept="image/*" class="hidden">
+                        <!-- 自定义上传按钮 -->
+                        <label for="imageUpload"
+                               class="hb-upload-zone transition-all">
+                            <i class="fa fa-file-image-o text-lg mb-1" aria-hidden="true"></i>
+                            <span>点击上传图片</span>
+                        </label>
+                    </div>
+                    <p class="text-xs text-gray-400">建议上传8张图片，少于8张时展示部分贺卡默认图片</p>
+                    <p class="text-sm text-gray-500">可通过长按拖动排序！</p>
+                    <div id="imagePreview" class="flex flex-wrap gap-3 mt-3"></div>
+                </div>
+
+                <!-- 上传录音 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <label class="text-headline font-medium">录音文件</label>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="voice" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                    </div>
+                    <div>
+                        <!-- 隐藏原始文件输入框 -->
+                        <input type="file" id="audioFileUpload" accept="audio/*,video/mp4,video/quicktime,video/webm,.mp3,.wav,.m4a,.aac,.flac,.ogg,.mp4,.mov,.webm,.mkv,.ncm,.kwm,.kgm,.mflac,.mgg,.qmc0,.qmc2,.qmc3"
+                               class="hidden">
+                        <!-- 自定义上传按钮 -->
+                        <label for="audioFileUpload"
+                               class="hb-upload-zone hb-upload-zone--inline transition-all shadow-none">
+                            <i class="fa fa-file-audio-o mr-2" aria-hidden="true"></i>
+                            <span>上传录音文件</span>
+                        </label>
+                    </div>
+                    <p class="text-xs text-gray-400">支持 mp3 / wav / m4a / aac / flac / ogg，单个文件不超过 60MB</p>
+                    <!-- 录音时长占位（仅用于兼容读取 timeDisplay 的既有逻辑，不展示） -->
+                    <div class="hidden" aria-hidden="true">
+                        <span id="timeDisplay">0</span>
+                    </div>
+                    <div id="audioPreview" class="mt-4 hidden">
+                        <audio id="recordedAudio" class="hidden"></audio>
+                        <div id="recordAudioPlayerWrap" class="ly-audiobox">
+                            <div class="music-player">
+                                <iframe id="recordPlayerIframe" src="./html/player.html" width="100%" height="140px" frameborder="0"
+                                        scrolling="no" allow="autoplay"></iframe>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <button id="deleteAudioBtn"
+                                    class="mt-2 bg-links text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-links/30">
+                                删除录音
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="min-w-0">
+                            <label class="text-headline font-medium leading-none">背景音乐</label>
+                        </div>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="music" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                        <div class="ml-auto flex items-center gap-1 pb-1 whitespace-nowrap overflow-x-auto">
+                            <button type="button" id="useDefaultMusicBtn" class="inline-flex items-center gap-1 bg-links hover:bg-links/90 text-white text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap">
+                                <span>使用推荐音乐</span>
+                            </button>
+                            <button type="button" id="switchDefaultMusicBtn" class="inline-flex items-center gap-1 bg-white hover:bg-gray-50 border border-[#f68eb6] text-[#f68eb6] text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-2.5 rounded-lg transition-all whitespace-nowrap">
+                                <i class="fa fa-forward" aria-hidden="true"></i><span>换一首</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="relative">
+                            <!-- 与「上传录音」一致：微信内置浏览器对冗长 MIME 的 accept 易误判为相册；用 audio/* + 扩展名，校验仍由 handleMusicUpload 负责 -->
+                            <input type="file" id="automationMusic"
+                                   accept="audio/*,video/mp4,video/quicktime,video/webm,.mp3,.wav,.m4a,.aac,.flac,.ogg,.mp4,.mov,.webm,.mkv,.avi,.ncm,.kwm,.kgm,.mflac,.mgg,.qmc0,.qmc2,.qmc3"
+                                   class="hidden"
+                                   onchange="handleMusicUpload(this)">
+                            <!-- 自定义上传按钮 -->
+                            <label for="automationMusic"
+                                   class="hb-upload-zone transition-all">
+                                <i class="fa fa-music text-lg mb-1"></i>
+                                <span>点击上传背景音乐</span>
+                            </label>
+                            <div id="musicTranscodeStatus" class="mt-1 text-xs text-gray-500 text-center min-h-[16px]"></div>
+                        </div>
+                        <!-- 音乐播放器预览 -->
+                        <div id="musicPlayerPreview" class="mt-1 hidden">
+                            <div id="musicAudioPlayerWrap" class="ly-audiobox">
+                                <div class="music-player">
+                                    <iframe id="musicPlayerIframe" src="./html/player.html" width="100%" height="140px" frameborder="0"
+                                            scrolling="no" allow="autoplay"></iframe>
+                                </div>
+                            </div>
+                            <div class="flex justify-center">
+                                <button id="deleteMusicBtn"
+                                        class="mt-1 bg-links text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-links/30">
+                                    删除音乐
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    let uploadedMusicFile = null;
+                    let uploadedMusicDataUrl = null;
+                    window.__recommendedMusicKey = '';
+                    let DEFAULT_MUSIC_OPTIONS = [];
+                    let defaultMusicIndex = 0;
+
+                    async function ensureDefaultMusicOptionsLoaded() {
+                        if (Array.isArray(DEFAULT_MUSIC_OPTIONS) && DEFAULT_MUSIC_OPTIONS.length > 0) {
+                            if (defaultMusicIndex >= DEFAULT_MUSIC_OPTIONS.length) {
+                                defaultMusicIndex = 0;
+                            }
+                            return;
+                        }
+                        const response = await fetch('/api/default-assets/config', { method: 'GET' });
+                        const payload = await response.json();
+                        if (!response.ok || payload.code !== 200 || !payload.data) throw new Error('暂无推荐背景音乐');
+                        const items = (payload.data.musicItems || [])
+                            .filter(item => item && item.enabled !== false && item.url)
+                            .map(item => ({ key: item.id, name: item.name || item.id, url: item.url }));
+                        if (!items.length) {
+                            throw new Error('暂无推荐背景音乐');
+                        }
+                        DEFAULT_MUSIC_OPTIONS = items;
+                        if (defaultMusicIndex >= DEFAULT_MUSIC_OPTIONS.length) {
+                            defaultMusicIndex = 0;
+                        }
+                    }
+
+                    function pauseRecordPlayer() {
+                        const recordIframe = document.getElementById('recordPlayerIframe');
+                        if (recordIframe && recordIframe.contentWindow) {
+                            recordIframe.contentWindow.postMessage({type: 'player:pause'}, '*');
+                        }
+                    }
+
+                    function pauseMusicPlayer() {
+                        const musicIframe = document.getElementById('musicPlayerIframe');
+                        if (musicIframe && musicIframe.contentWindow) {
+                            musicIframe.contentWindow.postMessage({type: 'player:pause'}, '*');
+                        }
+                    }
+
+                    async function handleMusicUpload(input) {
+                        const file = input.files[0];
+                        if (!file) return;
+                        const musicStatusEl = document.getElementById('musicTranscodeStatus');
+
+                        const validTypes = ['audio/mpeg', 'audio/wav', 'audio/mp4', 'audio/ogg', 'audio/webm', 'audio/aac', 'audio/flac', 'audio/x-m4a', 'audio/mp3',
+                            'video/mp4', 'video/quicktime', 'video/webm', 'video/x-msvideo', 'video/x-matroska', 'video/mpeg', 'video/3gpp'];
+                        const validExtensions = ['.mp3', '.wav', '.m4a', '.ogg', '.webm', '.aac', '.flac', '.mp4', '.mov', '.mkv', '.avi', '.mpeg', '.3gp', '.ncm', '.kwm', '.kgm', '.mflac', '.mgg', '.qmc0', '.qmc2', '.qmc3'];
+                        const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+
+                        const isValidType = validTypes.includes(file.type) || validExtensions.includes(fileExtension) || (file.type && file.type.startsWith('audio/'));
+
+                        if (!isValidType) {
+                            alert('请选择有效的音频或视频文件（含音轨）');
+                            input.value = '';
+                            return;
+                        }
+
+                        if (file.size > 60 * 1024 * 1024) {
+                            alert('文件大小不能超过60MB');
+                            input.value = '';
+                            return;
+                        }
+
+                        let displayFile = file;
+
+                        // 加密格式预处理（NCM 等），使用 hb-music-upload.js 管线
+                        var hbUpload = window.hbMusicUpload;
+                        if (hbUpload) {
+                            var encryptExts = ['.ncm', '.kwm', '.kgm', '.mflac', '.mgg', '.qmc0', '.qmc2', '.qmc3'];
+                            var isEncrypted = encryptExts.some(function(e) { return file.name.toLowerCase().endsWith(e); });
+                            if (isEncrypted) {
+                                try {
+                                    var processedFile = await hbUpload.processUpload(file, input, musicStatusEl, 'music');
+                                    // processUpload 已替换 input.files 并转码为 MP3
+                                    uploadedMusicFile = processedFile;
+                                    uploadedMusicDataUrl = null;
+                                    window.__recommendedMusicKey = '';
+                                    var ncmPreview = document.getElementById('musicPlayerPreview');
+                                    var ncmWrap = document.getElementById('musicAudioPlayerWrap');
+                                    if (ncmWrap) ncmWrap.classList.remove('hidden');
+                                    ncmPreview.classList.remove('hidden');
+                                    var ncmReader = new FileReader();
+                                    ncmReader.onload = function (e) {
+                                        uploadedMusicDataUrl = e.target.result;
+                                        initMusicPlayer(uploadedMusicDataUrl, 'audio/mpeg', processedFile.name || '背景音乐');
+                                    };
+                                    ncmReader.readAsDataURL(processedFile);
+                                    return;
+                                } catch (e) {
+                                    alert(e.message || '提取音频失败，请重新上传文件，或联系客服处理！');
+                                    input.value = '';
+                                    if (musicStatusEl) musicStatusEl.innerHTML = '';
+                                    return;
+                                }
+                            }
+                        }
+
+                        if (typeof hbTranscodeToMp3 === 'function') {
+                            const renderer = (window.hbMusicUpload && window.hbMusicUpload.createProgressRenderer)
+                                ? window.hbMusicUpload.createProgressRenderer(musicStatusEl, file)
+                                : { onProgress: function () {}, dispose: function () {} };
+                            try {
+                                const out = await hbTranscodeToMp3(file, 'music', { onProgress: renderer.onProgress });
+                                const base = file.name.replace(/\.[^.]+$/, '');
+                                // 本地 /api/media/transcode-mp3 是「直通」：原样回传字节并回显真实 Content-Type。
+                                // 必须沿用真实 MIME + 对应扩展名，不能把 WebM/WAV/M4A 谎称为 .mp3 / audio/mpeg，
+                                // 否则 iOS Safari 无法解码，贺卡在手机上静音。
+                                const outType = (out && out.type) ? out.type : (file.type || 'application/octet-stream');
+                                const extOfMime = (typeof audioExtForMime === 'function')
+                                    ? audioExtForMime(outType)
+                                    : '';
+                                const outExt = extOfMime || ('.' + (file.name.split('.').pop() || 'bin'));
+                                displayFile = (out instanceof File) ? out : new File([out], base + outExt, { type: outType });
+                                const dt = new DataTransfer();
+                                dt.items.add(displayFile);
+                                input.files = dt.files;
+                            } catch (e) {
+                                renderer.dispose();
+                                alert(e.message || '提取音频失败，请重新上传文件，或联系客服处理！');
+                                input.value = '';
+                                if (musicStatusEl) musicStatusEl.innerHTML = '';
+                                return;
+                            }
+                            renderer.dispose();
+                            if (musicStatusEl) musicStatusEl.innerHTML = '';
+                        }
+
+                        uploadedMusicFile = displayFile;
+                        uploadedMusicDataUrl = null;
+                        window.__recommendedMusicKey = '';
+
+                        const playerPreview = document.getElementById('musicPlayerPreview');
+                        const audioWrap = document.getElementById('musicAudioPlayerWrap');
+                        if (audioWrap) audioWrap.classList.remove('hidden');
+                        playerPreview.classList.remove('hidden');
+
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            uploadedMusicDataUrl = e.target.result;
+                            initMusicPlayer(uploadedMusicDataUrl, displayFile.type || 'audio/mpeg', displayFile.name || '背景音乐');
+                        };
+                        reader.readAsDataURL(displayFile);
+                    }
+
+                    function initMusicPlayer(dataUrl, mimeType, fileName) {
+                        const playerPreview = document.getElementById('musicPlayerPreview');
+                        const iframe = document.getElementById('musicPlayerIframe');
+                        const audioWrap = document.getElementById('musicAudioPlayerWrap');
+
+                        if (audioWrap) audioWrap.classList.remove('hidden');
+                        playerPreview.classList.remove('hidden');
+
+                        function sendInit() {
+                            try {
+                                iframe.contentWindow.postMessage({ type: 'player:reset' }, '*');
+                                iframe.contentWindow.postMessage({
+                                    type: 'initAudio',
+                                    src: dataUrl,
+                                    mimeType: mimeType,
+                                    fileName: fileName || '背景音乐'
+                                }, '*');
+                            } catch (e) { /* ignore */ }
+                        }
+
+                        iframe.onload = sendInit;
+                        if (dataUrl && /^https?:/i.test(String(dataUrl))) {
+                            iframe.src = './html/player.html?v=' + Date.now();
+                        } else if (iframe.contentWindow) {
+                            sendInit();
+                        }
+                    }
+
+                    function resetMusicPlayerUi() {
+                        const input = document.getElementById('automationMusic');
+                        const playerPreview = document.getElementById('musicPlayerPreview');
+                        if (input) input.value = '';
+                        uploadedMusicFile = null;
+                        uploadedMusicDataUrl = null;
+                        window.uploadedMusicDataUrl = null;
+                        window.__recommendedMusicKey = '';
+                        const audioWrap = document.getElementById('musicAudioPlayerWrap');
+                        if (audioWrap) audioWrap.classList.remove('hidden');
+                        if (playerPreview) playerPreview.classList.add('hidden');
+                        const musicStatusEl = document.getElementById('musicTranscodeStatus');
+                        if (musicStatusEl) musicStatusEl.innerHTML = '';
+                        const iframe = document.getElementById('musicPlayerIframe');
+                        if (iframe) iframe.src = './html/player.html';
+                    }
+
+                    window.hbApplyEchoMusicFromReport = async function (d) {
+                        const input = document.getElementById('automationMusic');
+                        const url = d && (d.automationMusicData || d.automationMusicUrl);
+                        const key = d && d.recommendedMusicKey ? String(d.recommendedMusicKey) : '';
+                        if (!url && !key) {
+                            resetMusicPlayerUi();
+                            return;
+                        }
+                        if (key && !url) {
+                            try {
+                                await ensureDefaultMusicOptionsLoaded();
+                                const idx = DEFAULT_MUSIC_OPTIONS.findIndex(function (o) {
+                                    return o && o.key === key;
+                                });
+                                if (idx >= 0) defaultMusicIndex = idx;
+                                const opt = idx >= 0 ? DEFAULT_MUSIC_OPTIONS[idx] : null;
+                                const resolved = (opt && opt.url) || '';
+                                if (!resolved) {
+                                    resetMusicPlayerUi();
+                                    return;
+                                }
+                                uploadedMusicFile = null;
+                                uploadedMusicDataUrl = resolved;
+                                window.uploadedMusicDataUrl = resolved;
+                                window.__recommendedMusicKey = key;
+                                if (input) input.value = '';
+                                initMusicPlayer(resolved, 'audio/mpeg', (opt && opt.name) || '推荐背景音乐');
+                            } catch (e) {
+                                resetMusicPlayerUi();
+                            }
+                            return;
+                        }
+                        uploadedMusicFile = null;
+                        uploadedMusicDataUrl = url;
+                        window.uploadedMusicDataUrl = url;
+                        window.__recommendedMusicKey = key;
+                        if (input) input.value = '';
+                        initMusicPlayer(url, 'audio/mpeg', key ? '推荐背景音乐' : '背景音乐');
+                    };
+                    window.hbUpdateApplyEchoMusicFromReport = window.hbApplyEchoMusicFromReport;
+
+                    document.getElementById('deleteMusicBtn').addEventListener('click', function() {
+                        const input = document.getElementById('automationMusic');
+                        const playerPreview = document.getElementById('musicPlayerPreview');
+
+                        input.value = '';
+                        uploadedMusicFile = null;
+                        uploadedMusicDataUrl = null;
+                        window.uploadedMusicDataUrl = null;
+                        const audioWrap = document.getElementById('musicAudioPlayerWrap');
+                        if (audioWrap) audioWrap.classList.remove('hidden');
+                        playerPreview.classList.add('hidden');
+                        const musicStatusEl = document.getElementById('musicTranscodeStatus');
+                        if (musicStatusEl) musicStatusEl.innerHTML = '';
+
+                        const iframe = document.getElementById('musicPlayerIframe');
+                        iframe.src = './html/player.html';
+                        window.__recommendedMusicKey = '';
+                    });
+
+                    function applyDefaultMusicByIndex(index) {
+                        const option = DEFAULT_MUSIC_OPTIONS[index % DEFAULT_MUSIC_OPTIONS.length];
+                        if (!option) return;
+                        uploadedMusicFile = null;
+                        uploadedMusicDataUrl = option.url;
+                        window.__recommendedMusicKey = option.key;
+                        const input = document.getElementById('automationMusic');
+                        if (input) input.value = '';
+                        initMusicPlayer(option.url, 'audio/mpeg', option.name || '推荐背景音乐');
+                    }
+
+                    const useDefaultMusicBtn = document.getElementById('useDefaultMusicBtn');
+                    if (useDefaultMusicBtn) {
+                        useDefaultMusicBtn.addEventListener('click', async function() {
+                            try {
+                                await ensureDefaultMusicOptionsLoaded();
+                                applyDefaultMusicByIndex(defaultMusicIndex);
+                            } catch (error) {
+                                const msg = (error && error.message) || '推荐背景音乐加载失败';
+                                if (window.showToast) {
+                                    showToast({ title: '加载失败', message: msg }, 'error', 2800);
+                                } else {
+                                    alert(msg);
+                                }
+                            }
+                        });
+                    }
+                    const switchDefaultMusicBtn = document.getElementById('switchDefaultMusicBtn');
+                    if (switchDefaultMusicBtn) {
+                        switchDefaultMusicBtn.addEventListener('click', async function() {
+                            try {
+                                await ensureDefaultMusicOptionsLoaded();
+                                defaultMusicIndex = (defaultMusicIndex + 1) % DEFAULT_MUSIC_OPTIONS.length;
+                                applyDefaultMusicByIndex(defaultMusicIndex);
+                            } catch (error) {
+                                const msg = (error && error.message) || '推荐背景音乐加载失败';
+                                if (window.showToast) {
+                                    showToast({ title: '加载失败', message: msg }, 'error', 2800);
+                                } else {
+                                    alert(msg);
+                                }
+                            }
+                        });
+                    }
+
+                    // 监听来自播放器iframe的消息，实现互斥播放
+                    window.addEventListener('message', function(event) {
+                        const data = event.data || {};
+                        if (data.type === 'player:play') {
+                            // 判断是哪个播放器发送的消息
+                            const musicIframe = document.getElementById('musicPlayerIframe');
+                            const recordIframe = document.getElementById('recordPlayerIframe');
+
+                            // 如果音乐播放器在播放，暂停录音播放器
+                            if (event.source === musicIframe.contentWindow) {
+                                pauseRecordPlayer();
+                            }
+                            // 如果录音播放器在播放，暂停音乐播放器
+                            else if (event.source === recordIframe.contentWindow) {
+                                pauseMusicPlayer();
+                            }
+                        }
+                    });
+                </script>
+
+                <div class="space-y-2">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <label class="text-headline font-medium">Ta的邮箱（选填）</label>
+                        <button type="button" class="field-help-btn inline-flex h-5 w-5 shrink-0 items-center justify-center bg-transparent border-0 text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="email" aria-label="填写说明"><i class="fa fa-info-circle text-[13px] leading-none" aria-hidden="true"></i></button>
+                    </div>
+                    <input
+                            type="email"
+                            id="email"
+                            placeholder="若填写，生日当天则会发送一封祝福邮件到该邮箱"
+                            class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all"
+                    >
+                </div>
+
+                <!-- 可折叠高级区域 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all">
+                    <div class="flex items-stretch">
+                        <button id="advancedToggle" type="button"
+                                class="flex min-w-0 flex-1 items-center justify-between px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <span class="text-headline font-medium">高级</span>
+                            <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <button type="button" class="field-help-btn inline-flex w-11 shrink-0 items-center justify-center bg-transparent text-gray-500 transition-colors hover:text-gray-700 focus:outline-none focus:ring-0" data-field-help="advanced" aria-label="高级说明"><i class="fa fa-info-circle text-base leading-none" aria-hidden="true"></i></button>
+                    </div>
+                    <div id="advancedContent"
+                         class="px-6 py-4 space-y-4 max-h-0 overflow-hidden transition-all duration-300 opacity-0">
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="useDefaultAdvancedCopy" checked
+                                   class="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded">
+                            <label for="useDefaultAdvancedCopy"
+                                   class="block text-sm text-headline font-medium">使用默认文案</label>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第一张图片上方（祝福语1）</label>
+                            <textarea
+                                    id="text1"
+                                    placeholder="请输入祝福语1内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第二张图片上方（祝福语2）</label>
+                            <textarea
+                                    id="text2"
+                                    placeholder="请输入祝福语2内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第三张图片上方（祝福语3）</label>
+                            <textarea
+                                    id="text3"
+                                    placeholder="请输入祝福语3内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第四张图片上方（祝福语4）</label>
+                            <textarea
+                                    id="text4"
+                                    placeholder="请输入祝福语4内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第五张图片上方（祝福语5）</label>
+                            <textarea
+                                    id="text5"
+                                    placeholder="请输入祝福语5内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第六张图片上方（祝福语6）</label>
+                            <textarea
+                                    id="text6"
+                                    placeholder="请输入祝福语6内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第七张图片上方（祝福语7）</label>
+                            <textarea
+                                    id="text7"
+                                    placeholder="请输入祝福语7内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第八张图片上方（祝福语8）</label>
+                            <textarea
+                                    id="text8"
+                                    placeholder="请输入祝福语8内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-headline font-medium">第八张图片下方（祝福语9）</label>
+                            <textarea
+                                    id="text9"
+                                    placeholder="请输入祝福语9内容"
+                                    rows="3"
+                                    class="w-full px-4 py-4 rounded-xl border border-gray-300 bg-white form-input-focus transition-all resize-none"
+                            ></textarea>
+                        </div>
+                        <button type="button" id="collapseAdvancedBtn"
+                                class="w-full py-2 text-sm text-gray-400 hover:text-gray-600 underline underline-offset-2 cursor-pointer bg-transparent border-0 transition-colors">
+                            收回
+                        </button>
+                    </div>
+                </div>
+
+                <script>
+                    (function () {
+                        const advancedToggle = document.getElementById('advancedToggle');
+                        const advancedContent = document.getElementById('advancedContent');
+                        const toggleIcon = advancedToggle.querySelector('i');
+                        const collapseBtn = document.getElementById('collapseAdvancedBtn');
+
+                        advancedToggle.addEventListener('click', () => {
+                            const isExpanded = advancedContent.classList.contains('max-h-0');
+                            if (isExpanded) {
+                                advancedContent.classList.remove('max-h-0', 'opacity-0');
+                                advancedContent.style.maxHeight = advancedContent.scrollHeight + 'px';
+                                toggleIcon.style.transform = 'rotate(180deg)';
+                            } else {
+                                advancedContent.style.maxHeight = '0';
+                                advancedContent.classList.add('opacity-0');
+                                setTimeout(() => {
+                                    advancedContent.classList.add('max-h-0');
+                                }, 300);
+                                toggleIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                        if (collapseBtn) {
+                            collapseBtn.addEventListener('click', function () {
+                                advancedContent.style.maxHeight = '0';
+                                advancedContent.classList.add('opacity-0');
+                                setTimeout(() => {
+                                    advancedContent.classList.add('max-h-0');
+                                }, 300);
+                                toggleIcon.style.transform = 'rotate(0deg)';
+                                advancedToggle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            });
+                        }
+
+                        function applyDefaultAdvancedCopy(checked) {
+                            const text1 = document.getElementById('text1');
+                            const text2 = document.getElementById('text2');
+                            if (!text2) return;
+                            if (checked) {
+                                text1.value = '';
+                                text2.value = '蛋糕上的烛光 是岁月赠你的星辰\n许下的愿望 皆然一一实现\n愿未来的每一天都如花般绚烂';
+                                document.getElementById('text3').value = '愿，你';
+                                document.getElementById('text4').value = '心之所向，皆有所成';
+                                document.getElementById('text5').value = '所遇皆欢喜 所求皆如愿';
+                                document.getElementById('text6').value = '许 个 愿 吧';
+                                document.getElementById('text7').value = '一岁一程 一程一景\n愿你新岁多喜乐 愿你岁岁常欢愉\n愿岁月温柔待你';
+                                document.getElementById('text8').value = '';
+                                document.getElementById('text9').value = '';
+                            } else {
+                                document.getElementById('text2').value = '';
+                                document.getElementById('text3').value = '';
+                                document.getElementById('text4').value = '';
+                                document.getElementById('text5').value = '';
+                                document.getElementById('text6').value = '';
+                                document.getElementById('text7').value = '';
+                            }
+                        }
+
+                        const useDefaultAdvancedCopy = document.getElementById('useDefaultAdvancedCopy');
+                        if (useDefaultAdvancedCopy) {
+                            useDefaultAdvancedCopy.addEventListener('change', function () {
+                                applyDefaultAdvancedCopy(this.checked);
+                            });
+                            if (useDefaultAdvancedCopy.checked) {
+                                applyDefaultAdvancedCopy(true);
+                            }
+                        }
+                    })();
+                </script>
+
+                <button type="button"
+                        class="generate-btn w-full bg-links hover:bg-links/90 text-white font-medium py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-links/30"
+                        data-label-create="✨ 立即生成 ✨"
+                        data-label-edit="✨ 立即更新 ✨"
+                >
+                    ✨ 立即生成 ✨
+                </button>
+
+                <!-- 结果区域 -->
+                <div class="result-box mt-8">
+                    <div
+                            class="result-poster p-4 bg-white border border-gray-100 rounded-xl shadow-sm"
+                            id="posterSection"
+                            style="display: none;"
+                    >
+                        <div class="text-lg font-bold text-paragraph mb-4 text-center">
+                            请保存<span style="color: #6246EA;">贺卡图片</span>（长按可保存）和<span
+                                style="color: #6246EA;">链接</span>，用于分享和预览！
+                        </div>
+                        <div class="flex justify-center mb-4">
+                            <img
+                                    id="posterPreview"
+                                    alt="贺卡预览"
+                                    class="rounded-lg shadow-md max-w-full"
+                            />
+                        </div>
+                        <button
+                                class="w-full bg-links hover:bg-links/90 text-white font-medium py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-links/30"
+                                id="downloadPosterBtn"
+                                onclick="downloadPoster()"
+                        >
+                            ✨ 下载贺卡图片 ✨
+                        </button>
+                    </div>
+
+                    <button
+                            class="copy-btn mt-4 w-full bg-links hover:bg-links/90 text-white font-medium py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-links/30"
+                            id="copyLinkBtn"
+                            style="display: none;"
+                    >
+                        ✨ 复制链接 ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center text-center">
+            <div class="flex items-center space-x-2 mb-6">
+                <img src="icon.jpg" alt="奶糖小屋" class="h-8 w-8 rounded-full object-cover">
+                <span class="font-bold text-xl">奶糖小屋🍬</span>
+            </div>
+            <p class="text-gray-400">
+                用数字传递最温暖的情感
+                <br>
+                让每一个特殊时刻都充满惊喜与感动
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- 返回顶部按钮 -->
+<button
+        id="back-to-top"
+        class="fixed bottom-6 right-6 w-12 h-12 bg-links text-white rounded-full shadow-lg flex items-center justify-center text-lg cursor-pointer hover:bg-links/90 transition-all transform hover:scale-110 z-40 opacity-0 invisible"
+>
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- 自定义消息提示框组件 -->
+<div id="customToast"
+     class="fixed top-20 left-1/2 transform -translate-x-1/2 rounded-xl shadow-2xl p-4 flex items-start space-x-4 max-w-md w-[90%] mx-auto text-white z-50 transition-all duration-300 opacity-0 translate-y-[-20px] pointer-events-none">
+    <div id="toastIcon"
+         class="w-10 h-10 rounded-full flex items-center justify-center text-xl flex-shrink-0">
+        <i class="fa fa-info-circle"></i>
+    </div>
+    <div class="flex-1">
+        <h4 id="toastTitle" class="font-bold text-lg mb-1 text-white"></h4>
+        <div id="toastMessage" class="font-medium text-white"></div>
+    </div>
+    <button id="toastClose" class="text-white hover:text-gray-200 transition-colors p-1">
+        <i class="fa fa-times"></i>
+    </button>
+</div>
+
+<!-- JavaScript -->
+<script src="./js/message-modal.js"></script>
+<script src="./js/result-modal.js"></script>
+<script src="./js/field-help-modal.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/index.shared.page.js"></script>
+<script src="./external/mobile-select.umd.min.js"></script>
+<script src="./js/index.shared.mobile-wheel.js"></script>
+<script src="./js/index.shared.birthday.js"></script>
+<script src="./js/index.shared.blessing.js"></script>
+<script src="./js/index.shared.image.js"></script>
+<script src="./js/transcode-mp3.js"></script>
+<script src="./js/vendor/threads.min.js"></script>
+<script src="./js/hb-music-upload.js"></script>
+<script src="./js/index.shared.audio.js"></script>
+<script src="./js/index.edit-mode.js"></script>
+<script src="./js/index.init.js"></script>
+<script src="./js/index.all.js"></script>
+<script src="./js/draft-box.js"></script>
+</body>
+</html>
+
+
