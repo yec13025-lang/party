@@ -1,17 +1,16 @@
-# 数字糖果铺 · 本地生日贺卡系统
+# 奶糖小屋🍬 · 本地生日贺卡系统
 
 零依赖 Node 后端 + 本地静态前端。表单页生成分享链接与二维码，贺卡页读取本地接口渲染内容。
 
 ## 启动
 
 ```powershell
-cd "C:\Users\31285\Desktop\Ai\deepseek\workspace12\extracted_site"
-node server.js
+node server.js        # 等价于 npm start
 ```
 
 - 本机访问：<http://127.0.0.1:8000/>
-- 局域网访问：<http://192.168.137.246:8000/>（启动时会打印实际探测到的地址）
-- 需要 Node.js 18+（用到内置 `fetch`/`crypto.randomInt`），**无需 `npm install`**。
+- 局域网访问：启动日志会打印实际探测到的地址（形如 `http://10.0.0.5:8000/`）
+- 需要 Node.js 18+（服务端用到内置 `crypto.randomInt`，`_verify/` 下的脚本用到内置 `fetch`），**无需 `npm install`**，仓库零依赖。
 
 可选环境变量：
 
@@ -40,23 +39,29 @@ New-NetFirewallRule -DisplayName "Birthday Local 8000" -Direction Inbound -Proto
 ## 目录结构
 
 ```
-extracted_site/
-├─ server.js                  零依赖后端（唯一入口）
-├─ index.audio.html           表单页（录音/图片/音乐/文字 + 生成）
-├─ integrated.html            贺卡页（收件人打开）
-├─ error.html                 token 失效落地页
-├─ html/player.html           音频播放器（表单预览与贺卡共用，iframe）
+birthday-card-lan/                （目录名随你的仓库名，下同）
+├─ server.js                      零依赖后端（唯一入口）
+├─ index.audio.html               表单页（录音/图片/音乐/文字 + 生成）
+├─ integrated.html                贺卡页（收件人打开）
+├─ error.html                     token 失效落地页
+├─ html/player.html               音频播放器（表单预览与贺卡共用，iframe）
 ├─ js/  css/  img/  music/  audio/  fonts/
-├─ default-assets-config.json 推荐图片组 / 推荐音乐（经 /api/default-assets/config 下发）
-├─ blessing-messages.json     祝福语（经 /api/blessingmessage/enabled 下发）
+├─ default-assets-config.json     推荐图片组 / 推荐音乐（经 /api/default-assets/config 下发）
+├─ blessing-messages.json         祝福语（经 /api/blessingmessage/enabled 下发）
+├─ package.json                   元信息，`npm start` → `node server.js`
+├─ LICENSE                        MIT（仅覆盖原创代码，见「许可」一节）
+├─ .gitignore / .gitattributes    运行数据排除规则 / 行尾策略
+├─ .editorconfig                  编辑器缩进与行尾约定
 └─ data/
-   ├─ demo/card.json          内置演示贺卡（不带 blessingid 时展示，寿星 NAME、祝福者 ONE）
-   ├─ tokens.json             token 白名单；文件存在且非空时按白名单校验
-   └─ cards/<16位ID>/         生成的贺卡
-      ├─ card.json            贺卡数据
-      ├─ images/0.png …       上传的图片
-      ├─ audio.<ext>          录音
-      └─ music.<ext>          背景音乐
+   ├─ demo/card.json              内置演示贺卡（不带 blessingid 时展示，寿星 NAME、祝福者 ONE）
+   ├─ tokens.json                 token 白名单；存在且非空时按白名单校验（**不入库**）
+   ├─ blog.json                   （可选）首页精选博客数据源，缺失时接口返回空数组
+   ├─ changelog.json              （可选）首页更新日志数据源，缺失时接口返回空数组
+   └─ cards/<16位ID>/             生成的贺卡（**不入库**）
+      ├─ card.json                贺卡数据
+      ├─ images/0.png …           上传的图片
+      ├─ audio.<ext>              录音
+      └─ music.<ext>              背景音乐
 ```
 
 `data/cards/` 下没有任何索引文件，`card.json` 与 `tokens.json` 也禁止静态访问，
@@ -72,6 +77,9 @@ ID 为 16 位 base62（95 bit 熵），无法枚举。
 | POST | `/api/edit?blessingId=:id` | 修改贺卡（局部合并） |
 | GET | `/api/default-assets/config` | 推荐图片组 / 推荐音乐 |
 | GET | `/api/blessingmessage/enabled` | 祝福语（可按 `relationship` 过滤） |
+| GET | `/api/changelogs/latest?limit=` | 首页更新日志，读 `data/changelog.json`（缺省 2 条，上限 50，文件缺失时返回 `[]`） |
+| GET | `/api/blogs/latest?limit=` | 首页精选博客，读 `data/blog.json`（缺省 3 条，上限 50，文件缺失时返回 `[]`） |
+| POST | `/api/message` | 页脚留言。**只记日志不落盘**（`data/` 属于可静态访问目录，落盘等于公开） |
 | POST | `/api/media/transcode-mp3` | 音频**直通**：原样回传上传字节与真实 `Content-Type` |
 | GET | `/api/token/validate?token=` | token 校验，返回 `{ code: 200, data: true|false }` |
 
@@ -104,9 +112,36 @@ ID 为 16 位 base62（95 bit 熵），无法枚举。
 ## 验证脚本
 
 ```powershell
-cd "C:\Users\31285\Desktop\Ai\deepseek\workspace12\extracted_site"
 node _verify\api_test.mjs      # 112 项：接口契约、静态资源、演示数据、遍历防护
 node _verify\fix_test.mjs      #  59 项：审计修复项回归（安全、数据丢失、静音、MIME）
 ```
 
-两者都要求在 `node server.js` 已启动的情况下运行。`_verify/` 目录已被后端禁止静态访问。
+两者都要求在 `node server.js` 已启动的情况下运行，默认打 `http://127.0.0.1:8000`。
+`_verify/` 目录已被后端禁止静态访问。
+
+## 许可
+
+代码采用 [MIT 许可](LICENSE)。
+
+需要注意 **MIT 只覆盖原创代码**。仓库内同时包含第三方组件与素材，它们各自遵循原有
+授权，不在 MIT 范围内：
+
+| 类别 | 文件 |
+| --- | --- |
+| JS 库 | `js/jquery-2.1.1.min.js`、`js/qrcode.min.js`、`js/unpack-worker.js`、`js/vendor/threads.min.js` |
+| 前端框架 | `external/cdn.tailwindcss.com.js`、`external/font-awesome.min.css`、`external/mobile-select.css`、`external/mobile-select.umd.min.js` |
+| 字体 | `fonts/` 下的字体（商用需自行确认厂商授权条款） |
+| 图片与音频素材 | `img/`、`music/`、`audio/` |
+
+`img/` 下可能包含真人照片，**涉及肖像权，请勿在未获授权的情况下公开使用**。
+
+## 仓库里没有的东西
+
+以下几项是运行时数据或部署方私有配置，已由 `.gitignore` 排除，`clone` 之后不会存在：
+
+| 路径 | 说明 |
+| --- | --- |
+| `data/cards/` | 生成的贺卡，内含用户上传的照片与录音 |
+| `data/tokens.json` | token 白名单，属于部署私密配置（文件缺失时该功能不做白名单校验） |
+| `data/blog.json` | 可选内容源；缺失时 `/api/blogs/latest` 返回空数组，首页显示「暂无博客内容，敬请期待」 |
+| `data/changelog.json` | 可选内容源；缺失时 `/api/changelogs/latest` 返回空数组，首页显示「暂无更新日志」 |
